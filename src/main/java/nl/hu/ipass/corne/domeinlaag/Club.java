@@ -1,4 +1,4 @@
-package Domeinlaag;
+package nl.hu.ipass.corne.domeinlaag;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,9 @@ public class Club {
         alleTeams.add(t);
     }
 
-    public ArrayList<Team> getTeam() {
+    public ArrayList<Team> getTeams() {
         return alleTeams;
     }
+
+
 }

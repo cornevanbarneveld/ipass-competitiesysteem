@@ -1,4 +1,6 @@
-package Domeinlaag;
+package nl.hu.ipass.corne.domeinlaag;
+
+import nl.hu.ipass.corne.domeinlaag.Speler;
 
 import java.util.ArrayList;
 
@@ -11,7 +13,10 @@ public class Team {
     }
 
     public void VoegspelerToe(Speler speler) {
-        spelers.add(speler);
+        if (!spelers.contains(speler)) {
+            spelers.add(speler);
+        }
+
     }
 
     public ArrayList<Speler> getSpelers() {

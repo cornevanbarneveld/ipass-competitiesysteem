@@ -1,4 +1,4 @@
-package Domeinlaag;
+package nl.hu.ipass.corne.domeinlaag;
 
 public class Gebruiker {
     private String gebruikersnaam;
