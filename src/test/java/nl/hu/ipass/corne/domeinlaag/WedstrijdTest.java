@@ -1,13 +1,15 @@
 package nl.hu.ipass.corne.domeinlaag;
 
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Competitie;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Speler;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Wedstrijd;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,8 +25,8 @@ class WedstrijdTest {
     @BeforeEach
     void Initialize() {
         competitie = new Competitie("2020-2021", "2e");
-        team1 = new Team("jo12-3");
-        team2 = new Team("jo12-2");
+        team1 = new Team("jo12-3","jongens");
+        team2 = new Team("jo12-2","jongens");
         wedstrijd = new Wedstrijd(LocalDateTime.of(2021,4,4,10,30 ),3 ,team1 , team2 , competitie );
         speler1 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler" );
         speler2 = new Speler("naam", "voorbeeldnaam" ,"wachtwoord2" , "speler" );

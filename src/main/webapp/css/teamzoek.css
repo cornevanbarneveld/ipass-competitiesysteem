@@ -1,0 +1,67 @@
+h2 {
+    margin-left: 20px;
+    font-size: 30px;
+}
+
+#clublabel{
+    font-size: 20px;
+
+}
+
+.input-field1 {
+
+    margin-left: 20px;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+#buttonzoekenteam{
+    font-size: 15px;
+    width: 100px;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+
+
+}
+
+#mannenSelect{
+    display: block;
+    font-size: 15px;
+    width: 150px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+#JongensSelect {
+    display: block;
+    font-size: 15px;
+    width: 150px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#vrouwenselect {
+    display: block;
+    font-size: 15px;
+    width: 150px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+.selectlabel{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+
+
+#zoekentm{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+

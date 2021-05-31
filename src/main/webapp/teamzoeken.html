@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/teamzoeken.js"></script>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/teamzoek.css">
+</head>
+<body>
+
+<div class="topnav">
+    <a href="homescreen.html">Home</a>
+    <a class="active" href="teamzoeken.html">Zoek Team</a>
+    <a class="loguit" href="index.html">Log uit</a>
+</div>
+
+
+
+<div class="content">
+    <form id="teamzoekForm">
+
+        <h2>Zoek team</h2>
+
+        <div class="input-container">
+
+
+            <label>
+                <input class="input-field1" type="text" placeholder="Club" name="club">
+            </label>
+            <button id="buttonzoekenteam" type="button" class="btn" onclick="zoeken()">Zoek Club</button>
+        </div>
+
+
+    </form>
+
+    <form id="teamOphalenF">
+        <label id="eersteselect" class="selectlabel">mannen
+            <select name="mannen" id="mannenSelect" onchange="spelersophalen()">Mannen
+            </select>
+        </label>
+
+        <label class="selectlabel">Jongens
+            <select name="Jongens" id="JongensSelect" onchange="spelersophalen()">
+            </select>
+        </label>
+
+        <label class="selectlabel">Vrouwen/meisjes
+            <select name="Vrouwen/meisjes" id="vrouwenselect" onchange="spelersophalen()" >
+            </select>
+        </label>
+
+        <button id="zoekentm" type="button" class="btnz" onclick="spelersophalen()">Zoek Team</button>
+    </form>
+
+</div>
+
+
+
+
+</body>
+</html>

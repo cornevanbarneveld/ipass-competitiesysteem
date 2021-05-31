@@ -1,5 +1,6 @@
 package nl.hu.ipass.corne.domeinlaag;
 
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Speler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

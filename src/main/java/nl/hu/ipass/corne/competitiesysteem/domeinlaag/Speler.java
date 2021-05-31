@@ -1,13 +1,9 @@
-package nl.hu.ipass.corne.domeinlaag;
-
-import nl.hu.ipass.corne.domeinlaag.Gebruiker;
-
-import java.util.ArrayList;
+package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
 public class Speler extends Gebruiker {
     private String naam;
-    private static int gelKaarten;
-    private static int rodeKaarten;
+    private int gelKaarten;
+    private int rodeKaarten;
 
 
     public Speler(String nm , String gnm, String ww, String tp){
@@ -15,7 +11,9 @@ public class Speler extends Gebruiker {
         this.naam = nm;
     }
 
-
+    public String getNaam() {
+        return naam;
+    }
 
     public void addGeleKaart() { gelKaarten += 1; }
 

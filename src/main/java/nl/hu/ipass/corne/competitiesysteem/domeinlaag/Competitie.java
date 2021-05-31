@@ -1,7 +1,6 @@
-package nl.hu.ipass.corne.domeinlaag;
+package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Competitie {
     private int nummer;

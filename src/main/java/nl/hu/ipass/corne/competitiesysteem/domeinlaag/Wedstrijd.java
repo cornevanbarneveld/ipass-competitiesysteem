@@ -1,11 +1,6 @@
-package nl.hu.ipass.corne.domeinlaag;
-
-import nl.hu.ipass.corne.domeinlaag.Team;
+package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,7 +58,6 @@ public class Wedstrijd {
                 geboekteSpelers.put(speler, boeking);
             }
         }
-
 
 
     }

@@ -1,5 +1,7 @@
 package nl.hu.ipass.corne.domeinlaag;
 
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Club;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +18,7 @@ class ClubTest {
     @BeforeEach
     void Initialize() {
         club = new Club("fcclub");
-        team = new Team("team");
+        team = new Team("team","mannen");
     }
 
 

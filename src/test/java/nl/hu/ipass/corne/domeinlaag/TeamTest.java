@@ -1,5 +1,7 @@
 package nl.hu.ipass.corne.domeinlaag;
 
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Speler;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +19,7 @@ class TeamTest {
     void Initialize() {
         speler1 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler");
         speler2 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler");
-        team = new Team("jo14-3");
+        team = new Team("jo14-3","jongens");
     }
 
     @Test
