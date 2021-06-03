@@ -24,8 +24,8 @@ class CompetitieTest {
     @BeforeEach
     void Initialize() {
         competitie = new Competitie("2020/2021" ,"2e" );
-        team = new Team("jo16-2","mannen");
-        team2 = new Team("jo16-1","jongens");
+        team = new Team("jo16-2");
+        team2 = new Team("jo16-1");
         wedstrijd = new Wedstrijd(LocalDateTime.of(2021,4,4,10,30 ),3 ,team , team2 , competitie );
 
 

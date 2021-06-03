@@ -10,7 +10,7 @@ import static java.lang.System.out;
 import java.io.*;
 import java.util.ArrayList;
 
-public class PersistanceManager {
+public class PersistanceTeams {
     private static final String ENDPOINT = "https://bepoplsagco.blob.core.windows.net/";
     private static final String SASTOKEN = "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-06-04T01:11:34Z&st=2021-06-03T17:11:34Z&spr=https&sig=QxMsBw4q2j7GYedTLZf23bqb6mbUwqlcWwcmZ%2FjInmE%3D";
     private static final String CONTAINER = "container3";
@@ -31,14 +31,14 @@ public class PersistanceManager {
 
 
 
-    private PersistanceManager() {
+    private PersistanceTeams() {
     }
 
     public static void loadWorldFromAzure() throws IOException, ClassNotFoundException {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobgebruiker");
+            BlobClient blob = blobContainer.getBlobClient("blobteam");
 
 
 
@@ -54,14 +54,15 @@ public class PersistanceManager {
 
 
 
-                ArrayList<Gebruiker> gebruikers = (ArrayList<Gebruiker>)ois.readObject();
-                geladenGebruikers.addAll(gebruikers);
 
-                for(Gebruiker g: geladenGebruikers){
-                    g.addGebruiker(g);
+
+
+                ArrayList<Team> teams = (ArrayList<Team>)ois.readObject();
+                geladenTeams.addAll(teams);
+                for(Team t: geladenTeams){
+                    t.addTeam(t);
 
                 }
-
 
 
 
@@ -88,35 +89,28 @@ public class PersistanceManager {
 
 
 
-        BlobClient blob = blobContainer.getBlobClient("blobgebruiker");
+        BlobClient blob = blobContainer.getBlobClient("blobteam");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
 
 
-        ArrayList<Gebruiker> opslaangebruikers = Gebruiker.getAlleGebruikers();
 
-        for (Gebruiker g: opslaangebruikers) {
-            for (Gebruiker gebr: geladenGebruikers) {
-                if(g.getGebruikersnaam().equals(gebr.getGebruikersnaam())){
-                    opslaangebruikers.remove(g);
+        ArrayList<Team> opslaanteams = Team.getAlleTeams();
 
+        for (Team t: opslaanteams) {
+            for (Team team: geladenTeams) {
+                if(team.getNaam().equals(t.getNaam()) && t.getClub().Getnaam().equals(t.getClub().Getnaam()) ){
+                    opslaanteams.remove(t);
                 }
-
             }
 
 
-
         }
 
-        if (opslaangebruikers != null) {
-            oos.writeObject(opslaangebruikers);
+        if (opslaanteams != null) {
+            oos.writeObject(opslaanteams);
         }
-
-
-
-
-
 
 
         byte[] bytez = baos.toByteArray();
@@ -129,3 +123,4 @@ public class PersistanceManager {
     }
 
 }
+

@@ -1,16 +1,16 @@
 package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Team {
+public class Team implements Serializable {
     private String naam;
-    private String type;
+    private Club club;
     private ArrayList<Speler> spelers = new ArrayList<Speler>();
     private static ArrayList<Team> alleTeams = new ArrayList<Team>();
 
-    public Team(String nm, String tp) {
+    public Team(String nm) {
         this.naam = nm;
-        this.type = tp;
         alleTeams.add(this);
     }
 
@@ -21,6 +21,14 @@ public class Team {
 
     }
 
+    public void setClub(Club clb){
+        this.club = clb;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
     public ArrayList<Speler> getSpelers() {
         return spelers;
     }
@@ -29,12 +37,11 @@ public class Team {
         return naam;
     }
 
-    public String getLeeftijdsGroep() {
-        return type;
-    }
-
     public void addTeam(Team t){
-        alleTeams.add(t);
+        if (!alleTeams.contains(t)) {
+            alleTeams.add(t);
+        }
+
     }
 
     public static ArrayList<Team> getAlleTeams() {

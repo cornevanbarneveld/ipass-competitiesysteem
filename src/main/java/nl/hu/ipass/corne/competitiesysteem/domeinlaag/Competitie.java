@@ -1,8 +1,9 @@
 package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Competitie {
+public class Competitie implements Serializable {
     private int nummer;
     private String datumseizoen;
     private String klasse;

@@ -19,7 +19,7 @@ class TeamTest {
     void Initialize() {
         speler1 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler");
         speler2 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler");
-        team = new Team("jo14-3","jongens");
+        team = new Team("jo14-3");
     }
 
     @Test

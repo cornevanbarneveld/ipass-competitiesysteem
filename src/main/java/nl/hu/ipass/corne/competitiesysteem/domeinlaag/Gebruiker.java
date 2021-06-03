@@ -1,8 +1,9 @@
 package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Gebruiker {
+public class Gebruiker implements Serializable {
     private String gebruikersnaam;
     private String wachtwoord;
     private String type;
@@ -28,6 +29,8 @@ public class Gebruiker {
     public void addGebruiker(Gebruiker g) {
         alleGebruikers.add(g);
     }
+
+
 
     public static ArrayList<Gebruiker> getAlleGebruikers() {
         return alleGebruikers;

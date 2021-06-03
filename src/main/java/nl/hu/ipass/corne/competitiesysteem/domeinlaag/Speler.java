@@ -1,6 +1,8 @@
 package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
-public class Speler extends Gebruiker {
+import java.io.Serializable;
+
+public class Speler extends Gebruiker implements Serializable {
     private String naam;
     private int gelKaarten;
     private int rodeKaarten;

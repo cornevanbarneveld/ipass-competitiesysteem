@@ -18,7 +18,7 @@ class ClubTest {
     @BeforeEach
     void Initialize() {
         club = new Club("fcclub");
-        team = new Team("team","mannen");
+        team = new Team("team");
     }
 
 

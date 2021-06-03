@@ -3,6 +3,7 @@ package nl.hu.ipass.corne.competitiesysteem.persistence;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Club;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 
@@ -10,7 +11,7 @@ import static java.lang.System.out;
 import java.io.*;
 import java.util.ArrayList;
 
-public class PersistanceManager {
+public class PersistanceClubs {
     private static final String ENDPOINT = "https://bepoplsagco.blob.core.windows.net/";
     private static final String SASTOKEN = "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-06-04T01:11:34Z&st=2021-06-03T17:11:34Z&spr=https&sig=QxMsBw4q2j7GYedTLZf23bqb6mbUwqlcWwcmZ%2FjInmE%3D";
     private static final String CONTAINER = "container3";
@@ -25,20 +26,20 @@ public class PersistanceManager {
             .containerName(CONTAINER)
             .buildClient();
 
-    private static ArrayList<Gebruiker> geladenGebruikers = new ArrayList<Gebruiker>();
-    private static ArrayList<Team> geladenTeams = new ArrayList<Team>();
+
+    private static ArrayList<Club> geladenClubs = new ArrayList<Club>();
 
 
 
 
-    private PersistanceManager() {
+    private PersistanceClubs() {
     }
 
     public static void loadWorldFromAzure() throws IOException, ClassNotFoundException {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobgebruiker");
+            BlobClient blob = blobContainer.getBlobClient("blobclub");
 
 
 
@@ -54,14 +55,21 @@ public class PersistanceManager {
 
 
 
-                ArrayList<Gebruiker> gebruikers = (ArrayList<Gebruiker>)ois.readObject();
-                geladenGebruikers.addAll(gebruikers);
 
-                for(Gebruiker g: geladenGebruikers){
-                    g.addGebruiker(g);
+
+
+                ArrayList<Club> Clubs = (ArrayList<Club>)ois.readObject();
+                geladenClubs.addAll(Clubs);
+                for(Club c: geladenClubs){
+                    c.addClub(c);
+                    out.println(c.Getnaam());
+                    for(Team t: Team.getAlleTeams()){
+
+                        c.voegTeamToe(t);
+                    }
+
 
                 }
-
 
 
 
@@ -88,35 +96,30 @@ public class PersistanceManager {
 
 
 
-        BlobClient blob = blobContainer.getBlobClient("blobgebruiker");
+        BlobClient blob = blobContainer.getBlobClient("blobclub");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
 
 
-        ArrayList<Gebruiker> opslaangebruikers = Gebruiker.getAlleGebruikers();
 
-        for (Gebruiker g: opslaangebruikers) {
-            for (Gebruiker gebr: geladenGebruikers) {
-                if(g.getGebruikersnaam().equals(gebr.getGebruikersnaam())){
-                    opslaangebruikers.remove(g);
+        ArrayList<Club> opslaanClubs = Club.getalleClubs();
 
+        for (Club c: opslaanClubs) {
+            for (Club club: geladenClubs) {
+                if(club.Getnaam().equals(c.Getnaam())){
+                    opslaanClubs.remove(c);
                 }
-
             }
 
 
-
-        }
-
-        if (opslaangebruikers != null) {
-            oos.writeObject(opslaangebruikers);
         }
 
 
 
-
-
+        if (opslaanClubs != null) {
+            oos.writeObject(opslaanClubs);
+        }
 
 
         byte[] bytez = baos.toByteArray();
@@ -129,3 +132,5 @@ public class PersistanceManager {
     }
 
 }
+
+

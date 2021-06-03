@@ -21,34 +21,35 @@ import static java.lang.System.out;
 public class TeamzoekenResource {
 
 
-    @POST
-    @Path("/clob")
+    @GET
+    @Path("{club}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response clubenteams(@FormParam("club") String club) {
+    public Response clubenteams(@PathParam("club") String club) {
 
 
 
         for (Club clb: Club.getalleClubs()) {
 
-            if (club.equals(clb.Getnaam())){
 
+            if (club.equals(clb.Getnaam())){
                 ArrayList<String> teamnamen =  new ArrayList<String>();
 
                 for (Team t: clb.getTeams()) {
-                    teamnamen.add(t.getNaam());
+                    if (!teamnamen.contains(t.getNaam())) {
+                        teamnamen.add(t.getNaam());
+                    }
+
+
+
                 }
-
-
-
-
-
-
 
                 return Response.ok(teamnamen).build();
             }
         }
 
-        return Response.status(Response.Status.NOT_FOUND).build();
+        Map<String, String> messages = new HashMap<>();
+        messages.put("error" , "no list by that name");
+        return Response.status(Response.Status.NOT_FOUND).entity(messages).build();
     }
 
 
@@ -57,8 +58,7 @@ public class TeamzoekenResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response spelersophalen(@FormParam("team") String team) {
 
-        out.println("tot hier 1");
-        out.println(team);
+
 
         for (Team t: Team.getAlleTeams()) {
             if (t.getNaam().equals(team)) {
@@ -68,12 +68,12 @@ public class TeamzoekenResource {
                     spelers.add(s.getNaam());
                 }
 
-                out.println("werkt");
+
                 return Response.ok(spelers).build();
             }
         }
 
-        out.println("werkt niet");
+
         return Response.status(Response.Status.NOT_FOUND).build();
 
 

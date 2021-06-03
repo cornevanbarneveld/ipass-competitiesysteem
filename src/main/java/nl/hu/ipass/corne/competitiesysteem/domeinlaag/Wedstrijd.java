@@ -1,10 +1,11 @@
 package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Wedstrijd {
+public class Wedstrijd implements Serializable {
     private LocalDateTime datum;
     private int veld;
     private int scoreThuisTeam;
