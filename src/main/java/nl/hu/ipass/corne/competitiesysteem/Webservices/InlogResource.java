@@ -17,17 +17,15 @@ public class InlogResource {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-
     public Response gebruikersnaam(@FormParam("username") String username,
                                    @FormParam("password") String password) {
 
-
+        out.println("aaaa");
 
 
         for (Gebruiker g: Gebruiker.getAlleGebruikers()) {
-
-
-            if(username.equals(g.getGebruikersnaam()) && password.equals(g.getWachtwoord())) {
+            out.println(g.getName());
+            if(username.equals(g.getName()) && password.equals(g.getWachtwoord())) {
                 return Response.ok().build();
             }
         }

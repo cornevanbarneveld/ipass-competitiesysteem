@@ -25,7 +25,7 @@
         <div class="input-container">
 
 
-            <label for="input-field1" class="labelclub" hidden>club</label>
+            <label for="input-field1" class="labelclub" hidden>text</label>
             <input id="input-field1" type="text" placeholder="Club" name="club" >
 
             <button id="buttonzoekenteam" type="button" class="btn" onclick="zoeken()">Zoek Club</button>
@@ -36,21 +36,24 @@
 
     <form id="teamOphalenF">
         <label id="eersteselect" class="selectlabel">mannen
-            <select name="mannen" id="mannenSelect" onchange="spelersophalen()">Mannen
+            <select name="mannen" id="mannenSelect" onchange="mannenophalen()">Mannen
+                <option hidden></option>
             </select>
         </label>
 
         <label class="selectlabel">Jongens
-            <select name="Jongens" id="JongensSelect" onchange="spelersophalen()">
+            <select name="Jongens" id="JongensSelect" onchange="jongensophalen()">
+                <option hidden></option>
             </select>
         </label>
 
         <label class="selectlabel">Vrouwen/meisjes
-            <select name="Vrouwen/meisjes" id="vrouwenselect" onchange="spelersophalen()" >
+            <select name="Vrouwen/meisjes" id="vrouwenselect" onchange="vrouwenophalen()">
+                <option hidden></option>
             </select>
         </label>
 
-        <button id="zoekentm" type="button" class="btnz" onclick="spelersophalen()">Zoek Team</button>
+        <button id="zoekentm" type="button" class="btnz" onclick="jongensophalen()">Zoek Team</button>
     </form>
 
 </div>

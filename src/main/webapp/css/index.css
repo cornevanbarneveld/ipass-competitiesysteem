@@ -21,21 +21,27 @@ h2 {
     display: block;
     margin : 0 auto;
     font-size: 14px;
+    visibility: visible;
 }
 
 #gebruikersnaam {
+
     text-align: center;
 }
 
-label #inputindex1 {
-    float: left;
-    font-size: 20px;
+
+#inputindex1 {
+    display: block;
+    margin-top: 30px;
     text-align: center;
-    margin-top: 20px;
+    font-size: 20px;
+    font-style: normal;
+
 
 }
 
 #inputindex2 {
+    display: block;
     margin-top: 30px;
     text-align: center;
     font-size: 20px;

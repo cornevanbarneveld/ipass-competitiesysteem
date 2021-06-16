@@ -12,7 +12,7 @@ class SpelerTest {
 
     @BeforeEach
     void Intialize() {
-        speler = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler" );
+        speler = new Speler("Corné van Barneveld" );
     }
 
     @Test

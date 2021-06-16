@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="js/teamzoeken.js"></script>
+    <script src="js/teamscherm.js"></script>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/teamscherm.css">
 </head>
-<body>
+<body onload="initialize()">
 
 
     <div class="topnav">
@@ -21,13 +21,25 @@
 
 
     <div class="content">
-        <label id="ttt">naam:</label>
-        <p id="aa"></p>
-        <div id="spelersdiv">
+        <div id="teamenclubdiv">
+            <label id="clubnaamlabel"></label>
+            <label id="teamnaamlabel"></label>
+        </div>
+
+
+
+        <h2>spelers</h2>
+        <div class = "spelerslist">
+
             <ul id="ulspelers">
             </ul>
         </div>
+
+
+
     </div>
+
+
 
 
 </body>

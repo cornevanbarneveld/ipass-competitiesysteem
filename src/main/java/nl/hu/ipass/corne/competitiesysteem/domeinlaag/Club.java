@@ -33,7 +33,10 @@ public class Club implements Serializable {
     }
 
     public void addClub(Club c) {
-        alleClubs.add(c);
+        if (!alleClubs.contains(c)) {
+            alleClubs.add(c);
+
+        }
     }
 
     public static ArrayList<Club> getalleClubs() {

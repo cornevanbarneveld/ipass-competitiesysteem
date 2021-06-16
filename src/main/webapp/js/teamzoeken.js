@@ -1,18 +1,22 @@
 
 function zoeken() {
     var clubnaam = document.querySelector("#input-field1").value
-    fetch(`/restservices/teamzoek/${clubnaam}` )
+
+    var fetchOptions = {method: "GET" , headers : { "authentication" : "Bearer" + window.sessionStorage.getItem("myJWT")
+    }}
+
+    fetch(`/restservices/teamzoek/${clubnaam}`, fetchOptions)
 
         .then(function (response) {
             if (response.ok) {
                 return response.json()
             }
             else {
-                throw "Wrong username / password";
+                throw "error";
             }
 
         }).then((clubs) => {
-        console.log(clubs)
+
         clubs.forEach(element => {
             var eersteTwee = element.substring(0, 2);
 
@@ -39,6 +43,7 @@ function zoeken() {
         })
 
     })
+    window.sessionStorage.setItem("selectedClub" , clubnaam);
 
 }
 
@@ -47,51 +52,21 @@ function zoeken() {
 
 
 
-function spelersophalen() {
+function jongensophalen() {
+    console.log("j");
+    window.sessionStorage.setItem("selectedTeam" , document.querySelector("#JongensSelect").value);
+    window.open("teamscherm.html");
+}
 
-    var e = document.getElementById("JongensSelect");
-    var strUser = e.options[e.selectedIndex].text;
+function mannenophalen() {
+    console.log("m");
+    window.sessionStorage.setItem("selectedTeam" , document.querySelector("#mannenSelect").value);
+    window.open("teamscherm.html");
+}
 
-
-
-
-
-    var formData = new FormData(document.querySelector("#teamOphalenF"));
-    formData.append("team" , strUser)
-    var encData = new URLSearchParams(formData.entries());
-
-
-
-    fetch("/restservices/teamzoek/team", {method: "POST", body: encData})
-
-        .then(function (response) {
-            if (response.ok) {
-                return response.json()
-            }
-            else {
-                throw "Wrong username / password";
-            }
-
-        }).then((spelers) => {
-
-            window.open("teamscherm.html")
-
-
-
-            document.querySelector("#aa").innerHTML = "teamnaam.."
-
-
-
-            spelers.forEach((element) => {
-                var node = document.createElement("li");
-                var textnode = document.createTextNode(element);
-                node.appendChild(textnode);
-                document.getElementById("ulspelers").appendChild(node);
-            })
-
-
-
-
-    })
+function vrouwenophalen() {
+    console.log("v");
+    window.sessionStorage.setItem("selectedTeam" , document.querySelector("#vrouwenselect").value);
+    window.open("teamscherm.html");
 
 }

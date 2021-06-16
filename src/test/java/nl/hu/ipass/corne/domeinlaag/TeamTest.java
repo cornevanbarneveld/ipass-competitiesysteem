@@ -17,8 +17,8 @@ class TeamTest {
 
     @BeforeEach
     void Initialize() {
-        speler1 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler");
-        speler2 = new Speler("Corné van Barneveld", "cornevb" ,"wachtwoord1" , "speler");
+        speler1 = new Speler("Corné van Barneveld");
+        speler2 = new Speler("Corné van Barneveld");
         team = new Team("jo14-3");
     }
 

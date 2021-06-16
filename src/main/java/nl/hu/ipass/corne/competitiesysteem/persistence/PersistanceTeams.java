@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class PersistanceTeams {
     private static final String ENDPOINT = "https://bepoplsagco.blob.core.windows.net/";
-    private static final String SASTOKEN = "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-06-04T01:11:34Z&st=2021-06-03T17:11:34Z&spr=https&sig=QxMsBw4q2j7GYedTLZf23bqb6mbUwqlcWwcmZ%2FjInmE%3D";
+    private static final String SASTOKEN = "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacupx&se=2022-06-04T15:24:48Z&st=2021-06-04T07:24:48Z&spr=https&sig=iEqjlK50CD1vFBcLKKUmMfQ3Dd%2F9NDc7okoPanp%2FPhU%3D";
     private static final String CONTAINER = "container3";
 
 
@@ -38,7 +38,7 @@ public class PersistanceTeams {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobteam");
+            BlobClient blob = blobContainer.getBlobClient("blobteam1");
 
 
 
@@ -50,28 +50,11 @@ public class PersistanceTeams {
                 ObjectInputStream ois = new ObjectInputStream(bais);
 
 
-
-
-
-
-
-
-
                 ArrayList<Team> teams = (ArrayList<Team>)ois.readObject();
                 geladenTeams.addAll(teams);
                 for(Team t: geladenTeams){
                     t.addTeam(t);
-
                 }
-
-
-
-
-
-
-
-
-
 
                 baos.close();
                 ois.close();
@@ -89,25 +72,19 @@ public class PersistanceTeams {
 
 
 
-        BlobClient blob = blobContainer.getBlobClient("blobteam");
+        BlobClient blob = blobContainer.getBlobClient("blobteam1");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
 
-
-
         ArrayList<Team> opslaanteams = Team.getAlleTeams();
-
         for (Team t: opslaanteams) {
             for (Team team: geladenTeams) {
                 if(team.getNaam().equals(t.getNaam()) && t.getClub().Getnaam().equals(t.getClub().Getnaam()) ){
                     opslaanteams.remove(t);
                 }
             }
-
-
         }
-
         if (opslaanteams != null) {
             oos.writeObject(opslaanteams);
         }

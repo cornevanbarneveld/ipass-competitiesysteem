@@ -6,17 +6,23 @@
 </head>
 <body>
 
-<h1>What API call to test? </h1>
-<h2>Should work:</h2>
+<h1>Intergatietest </h1>
+<h2>Hoort te werken</h2>
 <ul>
     <li>
         <a href="/restservices/teamzoek/Chelsea">vraag alle teams op voor parameter</a>
     </li>
+    <li>
+        <a href="/restservices/spelers/Chelsea/mannen-1">zoek spelers op met een club en een team</a>
+    </li>
 </ul>
-<h2>Should give clean error message</h2>
+<h2>zou een error moeten geven</h2>
 <ul>
     <li>
         <a href="/restservices/teamzoek/nonExistingList">zoek een niet bestaande club</a>
+    </li>
+    <li>
+        <a href="/restservices/spelers/geenclub/geenteam">zoek spelers met een niet bestaande club en team</a>
     </li>
 
 </ul>

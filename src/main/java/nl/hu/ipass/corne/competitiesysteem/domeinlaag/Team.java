@@ -17,6 +17,9 @@ public class Team implements Serializable {
     public void VoegspelerToe(Speler speler) {
         if (!spelers.contains(speler)) {
             spelers.add(speler);
+            speler.setTeam(this);
+            speler.setClub(club);
+
         }
 
     }
