@@ -18,15 +18,12 @@ import static java.lang.System.out;
 public class AuthenticationResource {
     public static final Key key = MacProvider.generateKey();
 
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 
-    public Response authenticateGebruiker(@FormParam("username") String username, @FormParam("password") String password) {
-
+    public Response authenticateGebruiker(@FormParam("username") String username,
+                                          @FormParam("password") String password) {
         try {
-
-
             String role = Gebruiker.validateLogin(username, password);
 
             if (role == null) {

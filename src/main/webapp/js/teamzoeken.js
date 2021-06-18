@@ -2,6 +2,8 @@
 function zoeken() {
     var clubnaam = document.querySelector("#input-field1").value
 
+    console.log("aaaaa")
+
     var fetchOptions = {method: "GET" , headers : { "authentication" : "Bearer" + window.sessionStorage.getItem("myJWT")
     }}
 
