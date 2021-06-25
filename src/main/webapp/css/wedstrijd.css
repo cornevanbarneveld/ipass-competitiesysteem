@@ -1,0 +1,28 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+li {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    width: 1fr;
+    border: groove 2px;
+}
+
+li p:first-of-type {
+    border-right: groove 2px;
+}
+
+#selectdivwed {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

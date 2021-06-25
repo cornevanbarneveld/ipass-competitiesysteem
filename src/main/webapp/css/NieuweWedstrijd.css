@@ -1,0 +1,64 @@
+#nummer{
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+#thuisclub{
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+#thuisteam{
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+#uitClub{
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+#uitTeam{
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+#veld{
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+#date{
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+
+#buttonWedscomp {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+
+h2 {
+    margin-left: 20px;
+}
+
+#labelcompnummer{
+    margin-left: 20px;
+
+}
+
+#errorp7{
+    margin-left: 20px;
+    color: #ff1a1a;
+}
+
+#errorp8{
+    margin-left: 20px;
+    color: #ff1a1a;
+}
+
+#dateDiv{
+    display: block;
+}

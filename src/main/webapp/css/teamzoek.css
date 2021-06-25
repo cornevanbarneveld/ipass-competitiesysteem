@@ -12,7 +12,7 @@ h2 {
 
     margin-left: 20px;
     font-size: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     visibility: visible;
 
 }
@@ -67,4 +67,8 @@ h2 {
 }
 
 
-
+#errorp3 {
+    margin-left: 20px;
+    color: #ff1a1a;
+    margin-bottom: 30px;
+}

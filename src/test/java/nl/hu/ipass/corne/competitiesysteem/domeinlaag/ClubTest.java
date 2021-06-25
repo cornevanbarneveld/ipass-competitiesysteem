@@ -1,7 +1,5 @@
-package nl.hu.ipass.corne.domeinlaag;
+package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Club;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

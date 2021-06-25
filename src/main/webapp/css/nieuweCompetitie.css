@@ -1,0 +1,24 @@
+#input-field1naam {
+    margin-left: 20px;
+    display: block;
+}
+
+h2{
+    margin-left: 20px;
+}
+
+#selectKlasse {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: block;
+}
+
+#maakcompbutton{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#zoekTeamCompbutton {
+    margin-left: 20px;
+    margin-top: 20px;
+}

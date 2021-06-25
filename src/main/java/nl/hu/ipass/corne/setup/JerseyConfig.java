@@ -11,7 +11,8 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("restservices")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
-        packages("nl.hu.bep.competitiesysteem.webservices" , "nl.hu.bep.competitiesysteem.security");
-        //register(RolesAllowedDynamicFeature.class);
+
+        packages("nl.hu.ipass.corne.competitiesysteem.Webservices" ,"nl.hu.ipass.corne.competitiesysteem.security");
+        register(RolesAllowedDynamicFeature.class);
     }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/VoegTeamCompetitie.js"></script>
+    <link rel="stylesheet" href="css/VoegTeamToeCompetitie.css">
+</head>
+<body onload="initialize()">
+
+    <div class="topnav">
+        <a href="homescreen.html">Home</a>
+        <a href="teamzoeken.html">Zoek Team</a>
+        <a href="NieuweCompetitie.html">Nieuwe Competitie</a>
+        <a class="active" href="voegTeamCompetitie.html">Voeg Team Toe</a>
+        <a class="loguit" href="index.html">Log uit</a>
+
+
+    </div>
+
+    <div class="content">
+
+            <h2>Voeg Team Toe</h2>
+
+            <label>Competitienummer
+                <input id="input-field1nummer" type="number" placeholder="competitienummer" name="nummer" >
+            </label>
+            <label for="input-field2Club" hidden>Club</label>
+            <input id="input-field2Club" type="text" placeholder="Club" name="club" >
+
+
+            <label for="input-field3Team" hidden>Team</label>
+            <input id="input-field3Team" type="text" placeholder="Team" name="team" >
+
+            <p id="errorp10"></p>
+            <button id="teamcompbutton" onclick="voegTeamToe()">Voeg Team Toe</button>
+
+    </div>
+</body>
+</html>

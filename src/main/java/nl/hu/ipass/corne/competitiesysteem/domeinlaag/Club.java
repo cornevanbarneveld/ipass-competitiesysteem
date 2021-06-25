@@ -28,7 +28,6 @@ public class Club implements Serializable {
     }
 
     public ArrayList<Team> getTeams() {
-
         return alleTeams;
     }
 
@@ -43,6 +42,27 @@ public class Club implements Serializable {
         return alleClubs;
     }
 
+    public static Club getClubOpNaam(String c) {
+        for (Club cl: alleClubs) {
+            if (cl.Getnaam().equals(c)) {
+                return cl;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean equals(Object andereObject) {
+        boolean gelijkeObjecten = false;
+        if (andereObject instanceof Club) {
+            Club andereClub = (Club) andereObject;
+            if (andereClub.Getnaam().equals(this.naam)) {
+                gelijkeObjecten = true;
+            }
+        }
+        return gelijkeObjecten;
+    }
 
 
 

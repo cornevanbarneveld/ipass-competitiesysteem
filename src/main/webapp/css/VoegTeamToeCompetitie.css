@@ -1,0 +1,31 @@
+#input-field1nummer{
+    margin-left: 20px;
+
+}
+
+h2 {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#input-field2Club {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: block;
+}
+
+#input-field3Team {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: block;
+}
+
+#teamcompbutton{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#errorp10{
+    margin-left: 20px;
+    color: #ff1a1a;
+}

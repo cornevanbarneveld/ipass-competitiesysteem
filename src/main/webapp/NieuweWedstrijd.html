@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/wedstrijd.js"></script>
+    <link rel="stylesheet" href="css/NieuweWedstrijd.css">
+</head>
+<body onload="refresh()">
+    <div class="topnav">
+        <a href="homescreen.html">Home</a>
+        <a href="teamzoeken.html">Zoek Team</a>
+        <a href="nieuwTeam.html">nieuw Team</a>
+        <a href="nieuweClub.html">nieuwe Club</a>
+        <a href="NieuweCompetitie.html">Nieuw Competitie</a>
+        <a class="active" href="NieuweWedstrijd.html">Wedstrijd</a>
+        <a href="nieuweSpelers.html">Nieuwe Speler</a>
+        <a href="nieuweScheids.html" hidden>Voeg ScheidsRechter Toe</a>
+
+        <a class="loguit" href="index.html">Log uit</a>
+
+    </div>
+
+    <div class="content">
+
+            <h2>Nieuwe Wedstrijd</h2>
+
+            <label id ="labelcompnummer" for="nummer">Competitienummer
+                <input required id="nummer" type="number" placeholder="competitienummer" name="nummer" >
+            </label>
+
+
+            <label for="thuisclub" hidden>thuisclub</label>
+                <input required id="thuisclub" type="text" placeholder="Club" name="club" >
+
+
+            <label for="thuisteam" hidden>thuisteam</label>
+                <input required id="thuisteam" type="text" placeholder="Team" name="team" >
+
+
+            <label for="uitClub" hidden>uitclub</label>
+            <input required id="uitClub" type="text" placeholder="Club" name="club" >
+
+
+            <label for="uitTeam" hidden> uitTeam</label>
+            <input required id="uitTeam" type="text" placeholder="Team" name="team" >
+
+
+            <label for="veld" hidden>veld</label>
+            <input required id="veld" type="number" placeholder="Veld" name="veld" >
+
+            <div id="dateDiv">
+                <label for="date" hidden>date</label>
+                <input required id="date" type="datetime-local" placeholder="datum" name="date" >
+                <label id="errorp7"></label>
+            </div>
+
+
+
+
+
+            <p id="errorp8"></p>
+            <button id="buttonWedscomp" onclick="voegWedstrijdToe()">Voeg Wedstrijd Toe</button>
+
+
+
+
+    </div>
+</body>
+</html>

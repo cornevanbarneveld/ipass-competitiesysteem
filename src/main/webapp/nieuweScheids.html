@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/nieuweScheids.js"></script>
+    <link rel="stylesheet" href="css/nieuwescheids.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <a href="homescreen.html">Home</a>
+        <a href="teamzoeken.html">Zoek Team</a>
+        <a href="nieuwTeam.html" hidden>nieuw Team</a>
+        <a href="nieuweClub.html" hidden>nieuwe Club</a>
+        <a href="NieuweCompetitie.html" hidden>nieuwe Competitie</a>
+        <a href="NieuweWedstrijd.html" hidden>Nieuwe Wedstrijd</a>
+        <a href="nieuweSpelers.html" hidden>Nieuwe Speler</a>
+        <a class="active" href="nieuweScheids.html" hidden>Voeg ScheidsRechter Toe</a>
+
+
+        <a class="loguit" href="index.html">Log uit</a>
+
+    </div>
+
+
+    <div class="content">
+
+            <h2>Nieuwe Scheidsrechter</h2>
+            <label for="gebruikerRegistreer" id="gebruikersnaamRegistreerLabel" hidden>naam</label>
+            <input id="gebruikerRegistreer" minlength="5" type="text" placeholder="Naam" name="Naam">
+
+
+            <label for="wwRegistreer" id="wachtwoordRegistreerLabel" hidden>wachtwoord</label>
+            <input id="wwRegistreer" type="password" placeholder="Password" name="password">
+
+
+            <p id="errorp11"></p>
+
+
+            <button id="Registreerbuttonscheids" type="button" class="btn" onclick="registreer()">Registreer</button>
+
+    </div>
+
+</body>
+</html>

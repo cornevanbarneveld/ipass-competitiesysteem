@@ -3,20 +3,22 @@ package nl.hu.ipass.corne.competitiesysteem.persistence;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Club;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Competitie;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Speler;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
+import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Wedstrijd;
 
 import java.io.*;
 import java.util.ArrayList;
 
 import static java.lang.System.out;
 
-public class PersistanceSpelers {
+public class PersistanceCompetitie {
     private static final String ENDPOINT = "https://bepoplsagco.blob.core.windows.net/";
     private static final String SASTOKEN = "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacupx&se=2022-06-04T15:24:48Z&st=2021-06-04T07:24:48Z&spr=https&sig=iEqjlK50CD1vFBcLKKUmMfQ3Dd%2F9NDc7okoPanp%2FPhU%3D";
     private static final String CONTAINER = "container3";
+
+
+
 
 
     private static BlobContainerClient blobContainer = new BlobContainerClientBuilder()
@@ -25,17 +27,20 @@ public class PersistanceSpelers {
             .containerName(CONTAINER)
             .buildClient();
 
-    private static ArrayList<Speler> geladenSpelers = new ArrayList<Speler>();
+    private static ArrayList<Competitie> geladenCompetities = new ArrayList<Competitie>();
 
 
-    private PersistanceSpelers() {
+
+
+
+    private PersistanceCompetitie() {
     }
 
     public static void loadWorldFromAzure() throws IOException, ClassNotFoundException {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobspelers111");
+            BlobClient blob = blobContainer.getBlobClient("blobcompetitie14");
 
             if (blob.exists()) {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -44,12 +49,13 @@ public class PersistanceSpelers {
                 ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
                 ObjectInputStream ois = new ObjectInputStream(bais);
 
-                ArrayList<Speler> spelers = (ArrayList<Speler>)ois.readObject();
-                geladenSpelers.addAll(spelers);
+                ArrayList<Competitie> competities = (ArrayList<Competitie>)ois.readObject();
+                geladenCompetities.addAll(competities);
 
-                for(Speler s: geladenSpelers){
 
-                    s.addSpeler(s);
+                for(Competitie c: geladenCompetities){
+                    c.addCompetitie(c);
+
                 }
                 baos.close();
                 ois.close();
@@ -63,19 +69,14 @@ public class PersistanceSpelers {
             blobContainer.create();
         }
 
-        BlobClient blob = blobContainer.getBlobClient("blobspelers111");
+        BlobClient blob = blobContainer.getBlobClient("blobcompetitie14");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
+        ArrayList<Competitie> opslaanCompetities = Competitie.getCompetities();
 
 
-        ArrayList<Speler> opslaanspelers = new ArrayList<Speler>(Speler.getSpelers());
-
-
-
-
-
-        oos.writeObject(opslaanspelers);
+        oos.writeObject(opslaanCompetities);
 
 
         byte[] bytez = baos.toByteArray();
@@ -86,5 +87,4 @@ public class PersistanceSpelers {
         oos.close();
         bais.close();
     }
-
 }

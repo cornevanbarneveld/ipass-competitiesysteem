@@ -1,8 +1,5 @@
-package nl.hu.ipass.corne.domeinlaag;
+package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
 
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Competitie;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Wedstrijd;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,10 +20,11 @@ class CompetitieTest {
 
     @BeforeEach
     void Initialize() {
-        competitie = new Competitie("2020/2021" ,"2e" );
+        competitie = new Competitie("beker" ,"2e" , 2020 , 2021 );
         team = new Team("jo16-2");
         team2 = new Team("jo16-1");
-        wedstrijd = new Wedstrijd(LocalDateTime.of(2021,4,4,10,30 ),3 ,team , team2 , competitie );
+        wedstrijd = new Wedstrijd(LocalDateTime.of(2021,4,4,10,30 ),3 ,team , team2);
+        wedstrijd.setCompetitie(competitie);
 
 
     }

@@ -1,0 +1,31 @@
+#Clubzoeken{
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+
+h2{
+    margin-left: 20px;
+}
+
+#TeamZoeken {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+
+#Spelertoevoegen {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+
+#buttonzoekenteamspeler {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#errorp9{
+    margin-left: 20px;
+    color: #ff1a1a;
+}

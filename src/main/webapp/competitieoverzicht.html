@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/home.css">
+    <script src="js/competitie.js"></script>
+    <link rel="stylesheet" href="css/competiescherm.css">
+
 </head>
-<body>
+<body onload="laadCompetities()">
 
 
     <div class="topnav">
@@ -14,10 +17,49 @@
         <a href="teamscherm.html">Team</a>
         <a href="wedstrijdschema.html">Wedstrijdschema</a>
         <a class="active" href="competitieoverzicht.html">competitieoverzicht</a>
+        <a id="alleenScheids" href="verwerkScore.html" hidden>Vul Score In</a>
         <a class="loguit" href="index.html">Log uit</a>
     </div>
     <div class="content">
+        <div id="selectdivcomp">
+            <label>Competitie
+                <select id="selectcomp" onchange="verwerkWedstrijden()">
+                    <option hidden></option>
+                </select>
+                <button id="buttonTeamZoekc"></button>
+                <button id="buttonwedzoekc"></button>
+
+            </label>
+        </div>
+            <div id="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>team</th>
+                            <th>gespeeld</th>
+                            <th>punten</th>
+                            <th>winst</th>
+                            <th>gelijkspel</th>
+                            <th>verloren</th>
+                            <th>doelsaldo</th>
+                            <th>dt</th>
+                            <th>dv</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
     </div>
+
+
+
 
 
 

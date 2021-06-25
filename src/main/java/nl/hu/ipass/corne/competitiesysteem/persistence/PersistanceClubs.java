@@ -39,7 +39,7 @@ public class PersistanceClubs {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobclub1");
+            BlobClient blob = blobContainer.getBlobClient("blobclub9");
 
             if (blob.exists()) {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -51,15 +51,6 @@ public class PersistanceClubs {
                 geladenClubs.addAll(Clubs);
                 for(Club c: geladenClubs){
                     c.addClub(c);
-                    for(Team t: Team.getAlleTeams()){
-                        for (Team tm: c.getTeams()) {
-                            if (t.getNaam().equals(tm.getNaam())) {
-                                c.voegTeamToe(t);
-                            }
-                        }
-
-
-                    }
                 }
                 baos.close();
                 ois.close();
@@ -75,7 +66,7 @@ public class PersistanceClubs {
 
 
 
-        BlobClient blob = blobContainer.getBlobClient("blobclub1");
+        BlobClient blob = blobContainer.getBlobClient("blobclub9");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
@@ -84,18 +75,10 @@ public class PersistanceClubs {
 
         ArrayList<Club> opslaanClubs = Club.getalleClubs();
 
-        for (Club c: opslaanClubs) {
-            for (Club club: geladenClubs) {
-                if(club.Getnaam().equals(c.Getnaam())){
-                    opslaanClubs.remove(c);
-                }
-            }
 
 
-        }
-        if (opslaanClubs != null) {
-            oos.writeObject(opslaanClubs);
-        }
+        oos.writeObject(opslaanClubs);
+
 
         byte[] bytez = baos.toByteArray();
 

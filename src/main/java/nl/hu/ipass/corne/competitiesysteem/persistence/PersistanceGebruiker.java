@@ -38,7 +38,7 @@ public class PersistanceGebruiker {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobgebruiker");
+            BlobClient blob = blobContainer.getBlobClient("blobgebruiker4");
 
             if (blob.exists()) {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -49,10 +49,8 @@ public class PersistanceGebruiker {
 
                 ArrayList<Gebruiker> gebruikers = (ArrayList<Gebruiker>)ois.readObject();
                 geladenGebruikers.addAll(gebruikers);
-                out.println(geladenGebruikers);
 
                 for(Gebruiker g: geladenGebruikers){
-                    out.println(g.getName());
                     g.addGebruiker(g);
 
                 }
@@ -68,24 +66,15 @@ public class PersistanceGebruiker {
             blobContainer.create();
         }
 
-        BlobClient blob = blobContainer.getBlobClient("blobgebruiker");
+        BlobClient blob = blobContainer.getBlobClient("blobgebruiker4");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
         ArrayList<Gebruiker> opslaangebruikers = Gebruiker.getAlleGebruikers();
 
-        for (Gebruiker g: opslaangebruikers) {
-            for (Gebruiker gebr: geladenGebruikers) {
-                if(g.getName().equals(gebr.getName())){
-                    opslaangebruikers.remove(g);
 
-                }
-            }
+        oos.writeObject(opslaangebruikers);
 
-        }
-        if (opslaangebruikers != null) {
-            oos.writeObject(opslaangebruikers);
-        }
 
         byte[] bytez = baos.toByteArray();
 

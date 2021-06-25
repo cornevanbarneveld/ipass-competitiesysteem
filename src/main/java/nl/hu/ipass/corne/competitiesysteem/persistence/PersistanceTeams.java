@@ -38,7 +38,7 @@ public class PersistanceTeams {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobteam1");
+            BlobClient blob = blobContainer.getBlobClient("blobteam44");
 
 
 
@@ -64,30 +64,19 @@ public class PersistanceTeams {
 
     public static void saveWorldToAzure() throws IOException {
 
-
-
         if (!blobContainer.exists()) {
             blobContainer.create();
         }
-
-
-
-        BlobClient blob = blobContainer.getBlobClient("blobteam1");
+        BlobClient blob = blobContainer.getBlobClient("blobteam44");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 
 
         ArrayList<Team> opslaanteams = Team.getAlleTeams();
-        for (Team t: opslaanteams) {
-            for (Team team: geladenTeams) {
-                if(team.getNaam().equals(t.getNaam()) && t.getClub().Getnaam().equals(t.getClub().Getnaam()) ){
-                    opslaanteams.remove(t);
-                }
-            }
-        }
-        if (opslaanteams != null) {
-            oos.writeObject(opslaanteams);
-        }
+
+
+        oos.writeObject(opslaanteams);
+
 
 
         byte[] bytez = baos.toByteArray();

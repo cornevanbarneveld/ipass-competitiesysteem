@@ -1,5 +1,10 @@
 
 function initialize() {
+
+    if(window.sessionStorage.getItem("role") === "scheidsrechter") {
+        document.querySelector("#alleenScheids").removeAttribute("hidden")
+    }
+
     var team = window.sessionStorage.getItem("selectedTeam");
     var club = window.sessionStorage.getItem("selectedClub");
 
@@ -9,7 +14,7 @@ function initialize() {
     document.querySelector("#clubnaamlabel").innerHTML = club;
 
 
-    var fetchOptions = {method: "GET" , headers : { "authentication" : "Bearer" + window.sessionStorage.getItem("myJWT")
+    var fetchOptions = {method: "GET" , headers : { "Authorization" : "Bearer " + window.sessionStorage.getItem("myJWT")
         }}
 
     fetch(`/restservices/spelers/${club}/${team}` , fetchOptions).then( (response) => {

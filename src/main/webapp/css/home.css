@@ -1,10 +1,15 @@
 body{
-    background-image: url("/img/sz9ihI.png");
+    background-color: #354152;
+
+    /* background-image: url("/img/sz9ihI.png"); */
+
+
 }
 
 .content{
     width: 80%;
-    height: 30em;
+    min-height: 30em;
+    height: auto;
     background-color: white;
     margin: auto;
     margin-top: 20px;
@@ -12,6 +17,9 @@ body{
 
 
 }
+
+
+
 
 .topnav {
     background-color: black;
@@ -38,7 +46,7 @@ body{
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: dimgray;
-    color: black;
+    color: white;
 }
 
 .topnav a.loguit {

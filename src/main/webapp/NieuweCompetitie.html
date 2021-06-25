@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/nieuwCompetitie.js"></script>
+    <link rel="stylesheet" href="css/nieuweCompetitie.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="homescreen.html">Home</a>
+        <a href="teamzoeken.html">Zoek Team</a>
+        <a class="active" href="NieuweCompetitie.html">Nieuwe Competitie</a>
+        <a href="voegTeamCompetitie.html">Voeg Team Toe</a>
+        <a class="loguit" href="index.html">Log uit</a>
+
+    </div>
+
+    <div class="content">
+        <h2>Nieuwe Competitie</h2>
+
+            <div class="input-container">
+
+                <label for="input-field1naam" hidden>competitienaam</label>
+                <input id="input-field1naam" type="text" placeholder="Naam" name="naam" >
+
+                <label>
+                    <select id="selectKlasse">
+                        <option>Professioneel</option>
+                        <option>Eerste Divisie</option>
+                        <option>Tweede Divisie</option>
+                        <option>Derde Divisie</option>
+                        <option>Hoofdklasse</option>
+                        <option>Eerste Klasse</option>
+                        <option>Tweede Klasse</option>
+                        <option>Derde Klasse</option>
+                        <option>Vierde Klasse</option>
+                        <option>Vijfde Klasse</option>
+                    </select>
+                </label>
+
+                <button id="maakcompbutton" onclick="maakCompetitie()">maak Competitie</button>
+            </div>
+
+    </div>
+
+
+</body>
+</html>

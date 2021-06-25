@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/nieuweSpelers.js"></script>
+    <link rel="stylesheet" href="css/nieuweSpelers.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="homescreen.html">Home</a>
+        <a href="teamzoeken.html">Zoek Team</a>
+        <a href="nieuwTeam.html">nieuw Team</a>
+        <a href="nieuweClub.html">nieuwe Club</a>
+        <a href="NieuweCompetitie.html">Nieuwe Competitie</a>
+        <a href="NieuweWedstrijd.html">Wedstrijd</a>
+        <a class="active" href="nieuweSpelers.html">Nieuwe Speler</a>
+        <a href="nieuweScheids.html" hidden>Voeg ScheidsRechter Toe</a>
+
+        <a class="loguit" href="index.html">Log uit</a>
+
+    </div>
+
+        <div class="content">
+            <form>
+                <h2>Nieuwe Speler</h2>
+                <div class="input-container">
+                    <label for="Clubzoeken" hidden>Club</label>
+                    <input  id="Clubzoeken" type="text" placeholder="Club" name="club" >
+
+                    <label for="TeamZoeken" hidden>Team</label>
+                    <input  id="TeamZoeken" type="text" placeholder="Team" name="Team" >
+
+                    <label for="Spelertoevoegen" hidden>naam Speler</label>
+                    <input  id="Spelertoevoegen" type="text" placeholder="naam" name="Speler" >
+
+                    <p id="errorp9"></p>
+
+                    <button id="buttonzoekenteamspeler" type="button" class="btn" onclick="VoegSpelerToe()">Voeg Toe</button>
+
+
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+</body>
+</html>

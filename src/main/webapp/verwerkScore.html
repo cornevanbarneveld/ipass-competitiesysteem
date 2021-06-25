@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/home.css">
-    <script src="js/wedstrijd.js"></script>
-    <link rel="stylesheet" href="css/wedstrijd.css">
+    <script src="js/verwerkScore.js"></script>
+    <link rel="stylesheet" href="css/verwerkScore.css">
+
 </head>
 <body onload="laadCompetitieswed()">
 
@@ -13,28 +14,35 @@
         <a href="homescreen.html">Home</a>
         <a href="teamzoeken.html">Zoek Team</a>
         <a href="teamscherm.html">Team</a>
-        <a class="active" href="wedstrijdschema.html">Wedstrijdschema</a>
+        <a href="wedstrijdschema.html">Wedstrijdschema</a>
         <a href="competitieoverzicht.html">competitieoverzicht</a>
-        <a id="alleenScheids" href="verwerkScore.html" hidden>Vul Score In</a>
+        <a class="active" id="alleenScheids" href="verwerkScore.html">Vul Score In</a>
         <a class="loguit" href="index.html">Log uit</a>
 
     </div>
-
-
     <div class="content">
         <div id="selectdivwed">
-            <label>Competitie
+            <label>competitie
                 <select id="selectcompwed" onchange="zoekWedstrijden()">
                     <option hidden></option>
                 </select>
+
             </label>
-        </div>
+
+
+
+
+
+
+
             <div class = "wedstrijdlist">
                 <ul id="ulwedstrijden">
+
+
                 </ul>
             </div>
 
-
+        </div>
 
         <dialog id="wedstrijdVerplaatsen">
             <h3>verplaats Wedstrijd</h3>
@@ -44,5 +52,6 @@
             <button onclick="VerplaatsDatum()">Verplaats</button>
         </dialog>
     </div>
+
 </body>
 </html>

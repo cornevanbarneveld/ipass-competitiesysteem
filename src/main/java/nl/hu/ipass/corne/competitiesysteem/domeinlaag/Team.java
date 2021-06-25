@@ -46,10 +46,29 @@ public class Team implements Serializable {
         }
 
     }
-
     public static ArrayList<Team> getAlleTeams() {
         return alleTeams;
     }
 
+    public static Team getTeamOpNaamEnClub(String t, Club c) {
+        for (Team team: alleTeams) {
+            if (t.equals(team.getNaam()) && c.equals(team.getClub())) {
+                return team;
+            }
+        }
 
+        return null;
+    }
+
+    @Override
+    public boolean equals(Object andereObject) {
+        boolean gelijkeObjecten = false;
+        if (andereObject instanceof Team) {
+            Team anderteam = (Team) andereObject;
+            if (this.naam.equals(anderteam.naam) && this.club.Getnaam().equals(anderteam.getClub().Getnaam())) {
+                gelijkeObjecten = true;
+            }
+        }
+        return gelijkeObjecten;
+    }
 }
