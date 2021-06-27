@@ -1,3 +1,7 @@
+function Initialize() {
+
+}
+
 function VoegSpelerToe() {
 
     var club = document.querySelector("#Clubzoeken").value

@@ -91,7 +91,9 @@ public class Wedstrijd implements Serializable {
         if (andereObject instanceof Wedstrijd) {
             Wedstrijd andereWedstrijd = (Wedstrijd) andereObject;
             if (this.thuisTeam !=null && this.uitTeam != null) {
-                if (this.thuisTeam.equals(andereWedstrijd.getThuisTeam()) && this.uitTeam.equals(andereWedstrijd.getUitTeam()) && this.datum == andereWedstrijd.getDatum()) {
+                System.out.println(datum);
+                System.out.println(andereWedstrijd.getDatum());
+                if (this.thuisTeam.equals(andereWedstrijd.getThuisTeam()) && this.uitTeam.equals(andereWedstrijd.getUitTeam()) && this.datum.toString().equals(andereWedstrijd.getDatum().toString())) {
                     gelijkeObjecten = true;
                 }
             }

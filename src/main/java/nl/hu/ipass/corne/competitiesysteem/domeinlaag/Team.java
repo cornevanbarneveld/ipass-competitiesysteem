@@ -49,8 +49,11 @@ public class Team implements Serializable {
 
     public static Team getTeamOpNaamEnClub(String t, String c) {
         for (Team team: alleTeams) {
-            if (t.equals(team.getNaam()) && c.equals(team.getClub().Getnaam())) {
-                return team;
+            if (t.equals(team.getNaam()))  {
+                if (c.equals(team.getClub().Getnaam())) {
+                    return team;
+                }
+
             }
         }
 

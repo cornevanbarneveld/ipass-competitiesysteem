@@ -17,6 +17,7 @@ class WedstrijdTest {
     private Speler speler1;
     private Speler speler2;
     private Competitie competitie;
+    private Club club;
 
     @BeforeEach
     void Initialize() {
@@ -27,12 +28,13 @@ class WedstrijdTest {
         wedstrijd.setCompetitie(competitie);
         speler1 = new Speler("Corné van Barneveld" );
         speler2 = new Speler("naam");
+        club = new Club("club1");
     }
 
 
 
     @Test
-    void voegscoreToe() {
+    void voegscoreToeGetScore() {
         wedstrijd.setScoreThuisTeam(1);
         wedstrijd.setScoreUitTeam(3);
 
@@ -41,6 +43,46 @@ class WedstrijdTest {
 
 
     }
+
+    @Test
+    void GetEnSetGespeeld() {
+        wedstrijd.setScoreThuisTeam(1);
+        wedstrijd.setScoreUitTeam(3);
+        wedstrijd.setGespeeld();
+
+        assertTrue(wedstrijd.getGespeeld());
+
+    }
+
+
+    @Test
+    void GetEnVervangDatum() {
+
+        LocalDateTime locd = LocalDateTime.of(2021,4,4,10,30 );
+        wedstrijd.verVangDatum(locd);
+
+        assertEquals(locd, wedstrijd.getDatum());
+
+    }
+
+    @Test
+    void equals() {
+
+        Wedstrijd wedstrijd1 = new Wedstrijd(LocalDateTime.of(2021,4,4,10,30 ),3 ,team1 , team2 );
+        Wedstrijd wedstrijd2 = new Wedstrijd(LocalDateTime.of(2021,4,4,10,30 ),3 ,team1 , team2 );
+
+
+        team1.setClub(club);
+        team2.setClub(club);
+
+        if (wedstrijd1.getDatum() == wedstrijd.getDatum()) {
+            System.out.println("aaaaa");
+        }
+
+        assertTrue(wedstrijd2.equals(wedstrijd1));
+    }
+
+
 
 
 }
