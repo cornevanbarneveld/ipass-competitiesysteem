@@ -27,31 +27,39 @@
             <h2>Nieuwe Wedstrijd</h2>
 
             <label id ="labelcompnummer" for="nummer">Competitienummer
-                <input required id="nummer" type="number" placeholder="competitienummer" name="nummer" >
+                <input required id="nummer" min="0" type="number" placeholder="competitienummer" name="nummer" >
             </label>
 
+            <div id="een">
+                <label class="tc" for="thuisclub" >thuisclub
+                    <input class="tc" required id="thuisclub" type="text" placeholder="Club" name="club" >
+                </label>
+            </div>
 
-            <label for="thuisclub" hidden>thuisclub</label>
-                <input required id="thuisclub" type="text" placeholder="Club" name="club" >
+            <div id="twee">
+                <label class="tt" for="thuisteam" >thuisteam</label>
+                <input class="tt" required id="thuisteam" type="text" placeholder="Team" name="team" >
+            </div>
 
+            <div id="drie">
+                <label for="uitClub" >uitclub</label>
+                <input required id="uitClub" type="text" placeholder="Club" name="club" >
 
-            <label for="thuisteam" hidden>thuisteam</label>
-                <input required id="thuisteam" type="text" placeholder="Team" name="team" >
+            </div>
 
+            <div id="vier">
+                <label for="uitTeam" > uitTeam</label>
+                <input required id="uitTeam" type="text" placeholder="Team" name="team" >
+            </div>
 
-            <label for="uitClub" hidden>uitclub</label>
-            <input required id="uitClub" type="text" placeholder="Club" name="club" >
+            <div id="vijf">
+                <label for="veld" >veld</label>
+                <input required id="veld" min="0" type="number" placeholder="Veld" name="veld" >
 
-
-            <label for="uitTeam" hidden> uitTeam</label>
-            <input required id="uitTeam" type="text" placeholder="Team" name="team" >
-
-
-            <label for="veld" hidden>veld</label>
-            <input required id="veld" type="number" placeholder="Veld" name="veld" >
+            </div>
 
             <div id="dateDiv">
-                <label for="date" hidden>date</label>
+                <label for="date" >date</label>
                 <input required id="date" type="datetime-local" placeholder="datum" name="date" >
                 <label id="errorp7"></label>
             </div>

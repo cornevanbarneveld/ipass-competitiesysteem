@@ -6,27 +6,27 @@
 #thuisclub{
     margin-left: 20px;
     margin-top: 20px;
-    display: block;
+
 }
 #thuisteam{
     margin-left: 20px;
     margin-top: 20px;
-    display: block;
+
 }
 #uitClub{
     margin-left: 20px;
     margin-top: 20px;
-    display: block;
+
 }
 #uitTeam{
     margin-left: 20px;
     margin-top: 20px;
-    display: block;
+
 }
 #veld{
     margin-left: 20px;
     margin-top: 20px;
-    display: block;
+
 }
 #date{
     margin-left: 20px;
@@ -37,7 +37,7 @@
 #buttonWedscomp {
     margin-left: 20px;
     margin-top: 20px;
-    display: block;
+
 }
 
 h2 {
@@ -61,4 +61,29 @@ h2 {
 
 #dateDiv{
     display: block;
+}
+
+
+#een {
+    margin-left: 20px;
+}
+
+#twee {
+    margin-left: 20px;
+}
+
+#drie {
+    margin-left: 20px;
+}
+
+#vier {
+    margin-left: 20px;
+}
+
+#vijf {
+    margin-left: 20px;
+}
+
+#dateDiv {
+    margin-left: 20px;
 }

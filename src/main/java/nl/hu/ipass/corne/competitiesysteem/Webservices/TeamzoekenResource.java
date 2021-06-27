@@ -2,6 +2,7 @@ package nl.hu.ipass.corne.competitiesysteem.Webservices;
 
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
@@ -18,6 +19,7 @@ import java.util.Map;
 public class TeamzoekenResource {
 
     @GET
+    @RolesAllowed({"toeschouwer" , "admin" , "scheidsrechter"})
     @Path("{club}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response clubenteams(@PathParam("club") String club) {
@@ -38,6 +40,7 @@ public class TeamzoekenResource {
     }
 
     @POST
+    @RolesAllowed({"toeschouwer","admin" , "scheidsrechter"})
     @Path("/team")
     @Produces(MediaType.APPLICATION_JSON)
     public Response spelersophalen(@FormParam("team") String team) {
@@ -54,7 +57,8 @@ public class TeamzoekenResource {
     }
 
     @POST
-    @Path("{club}/{team}")
+    @RolesAllowed({"toeschouwer","admin" , "scheidsrechter"})
+    @Path("/getteamenclub/{club}/{team}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCompetitieTeamsEnClub(@PathParam("club") String club,
                                    @PathParam("team") String team,
@@ -63,7 +67,7 @@ public class TeamzoekenResource {
 
         Club club1 = Club.getClubOpNaam(club);
         if (club1 != null) {
-            Team t = Team.getTeamOpNaamEnClub(team, club1);
+            Team t = Team.getTeamOpNaamEnClub(team, club);
             if (t != null) {
                 ArrayList<Competitie> competities = new ArrayList<>(Competitie.getCompetitiesVoorTeam(t));
                 for (Competitie comp : competities) {
@@ -72,26 +76,23 @@ public class TeamzoekenResource {
                         for (Team tm: comp.getTeams()) {
                             String clubnaam = tm.getClub().Getnaam();
                             teamnamenenclubnaam.add(clubnaam +" " + tm.getNaam());
-
                         }
-
                         return Response.ok(teamnamenenclubnaam).build();
-
                     }
                 }
             }
         }
 
-        Map<String, String> messages = new HashMap<>();
-        messages.put("error", "geen competities gevonden");
+
         return Response.status(Response.Status.NOT_FOUND).build();
 
     }
 
     @POST
+    @RolesAllowed("admin")
     @Path("/teammaak/{club}/{team}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCompetitieTeamsEnClub(@PathParam("club") String club,
+    public Response maakTeam(@PathParam("club") String club,
                                              @PathParam("team") String team) {
 
 

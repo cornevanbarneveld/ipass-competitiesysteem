@@ -1,6 +1,6 @@
 #input-field1naam {
     margin-left: 20px;
-    display: block;
+
 }
 
 h2{
@@ -10,7 +10,7 @@ h2{
 #selectKlasse {
     margin-top: 20px;
     margin-left: 20px;
-    display: block;
+
 }
 
 #maakcompbutton{
@@ -21,4 +21,12 @@ h2{
 #zoekTeamCompbutton {
     margin-left: 20px;
     margin-top: 20px;
+}
+
+#c1 {
+    margin-left: 20px;
+}
+
+#c2 {
+    margin-left: 20px;
 }

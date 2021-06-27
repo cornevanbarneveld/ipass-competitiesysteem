@@ -22,16 +22,22 @@
     <div class="content">
 
             <h2>Voeg Team Toe</h2>
+            <div id="cc1">
+                <label>Competitienummer
+                    <input id="input-field1nummer" type="number" min="0" placeholder="competitienummer" name="nummer" >
+                </label>
+            </div>
+            <div id="cc2">
+                <label for="input-field2Club" >Club</label>
+                <input id="input-field2Club" type="text" placeholder="Club" name="club" >
+            </div>
 
-            <label>Competitienummer
-                <input id="input-field1nummer" type="number" placeholder="competitienummer" name="nummer" >
-            </label>
-            <label for="input-field2Club" hidden>Club</label>
-            <input id="input-field2Club" type="text" placeholder="Club" name="club" >
 
+            <div id="cc3">
+                <label for="input-field3Team" >Team</label>
+                <input id="input-field3Team" type="text" placeholder="Team" name="team" >
+            </div>
 
-            <label for="input-field3Team" hidden>Team</label>
-            <input id="input-field3Team" type="text" placeholder="Team" name="team" >
 
             <p id="errorp10"></p>
             <button id="teamcompbutton" onclick="voegTeamToe()">Voeg Team Toe</button>

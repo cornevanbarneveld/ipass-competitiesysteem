@@ -32,5 +32,19 @@ class ClubTest {
         assertEquals(club.getTeams(), teams);
     }
 
+    @Test
+    void getNaamTest() {
+
+        assertEquals("fcclub" , club.Getnaam());
+    }
+
+    @Test
+    void testEquals() {
+
+        Club club1 = new Club("fcclub");
+
+        assertTrue(club1.equals(club));
+    }
+
 
 }

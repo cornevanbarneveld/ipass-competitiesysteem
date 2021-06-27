@@ -60,7 +60,8 @@ function maakTeam() {
             .then(function (response) {
                 if (response.ok) {
                     document.querySelector("#errorp5").innerHTML = ""
-                    return response.json()
+                    document.querySelector("#input-field1").value = ""
+                    document.querySelector("#inputTeamAanmaak").value = ""
                 }
                 else {
                     document.querySelector("#errorp5").innerHTML = "team bestaat al"

@@ -11,13 +11,13 @@ h2 {
 #input-field2Club {
     margin-top: 20px;
     margin-left: 20px;
-    display: block;
+
 }
 
 #input-field3Team {
     margin-top: 20px;
     margin-left: 20px;
-    display: block;
+
 }
 
 #teamcompbutton{
@@ -28,4 +28,16 @@ h2 {
 #errorp10{
     margin-left: 20px;
     color: #ff1a1a;
+}
+
+#cc1 {
+    margin-left: 20px;
+}
+
+#cc2 {
+    margin-left: 20px;
+}
+
+#cc3 {
+    margin-left: 20px;
 }

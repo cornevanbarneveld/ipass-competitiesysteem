@@ -18,8 +18,6 @@ public class Team implements Serializable {
         if (!spelers.contains(speler)) {
             spelers.add(speler);
             speler.setTeam(this);
-            speler.setClub(club);
-
         }
 
     }
@@ -44,15 +42,14 @@ public class Team implements Serializable {
         if (!alleTeams.contains(t)) {
             alleTeams.add(t);
         }
-
     }
     public static ArrayList<Team> getAlleTeams() {
         return alleTeams;
     }
 
-    public static Team getTeamOpNaamEnClub(String t, Club c) {
+    public static Team getTeamOpNaamEnClub(String t, String c) {
         for (Team team: alleTeams) {
-            if (t.equals(team.getNaam()) && c.equals(team.getClub())) {
+            if (t.equals(team.getNaam()) && c.equals(team.getClub().Getnaam())) {
                 return team;
             }
         }

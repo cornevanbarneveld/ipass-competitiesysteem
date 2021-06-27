@@ -69,3 +69,8 @@ function registreer() {
 
 
 }
+
+function vergeetData() {
+    console.log("a")
+    sessionStorage.clear()
+}

@@ -4,7 +4,6 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,7 +11,6 @@ import javax.ws.rs.core.Response;
 import java.security.Key;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Calendar;
-import static java.lang.System.out;
 
 @Path("/authentication")
 public class AuthenticationResource {

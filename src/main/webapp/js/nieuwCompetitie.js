@@ -16,7 +16,7 @@ function maakCompetitie() {
                 if (response.ok) {
                     var button = document.createElement("button");
                     button.setAttribute("id" , "zoekTeamCompbutton")
-                    button.innerHTML = "zoek Team";
+                    button.innerHTML = "Voeg team toe";
                     button.setAttribute("onclick" , "window.location.href = 'voegTeamCompetitie.html'")
                     var contendiv = document.querySelector(".content");
                     contendiv.appendChild(button);

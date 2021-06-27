@@ -3,10 +3,9 @@ package nl.hu.ipass.corne.competitiesysteem.persistence;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
+import nl.hu.ipass.corne.competitiesysteem.security.Gebruiker;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 
-import static java.lang.System.out;
 import java.io.*;
 import java.util.ArrayList;
 

@@ -26,3 +26,17 @@ li p:first-of-type {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+#wedstrijdVerplaatsen {
+    overflow: hidden;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 150px;
+    width: 400px;
+}
+
+#buttons {
+    display: block;
+}

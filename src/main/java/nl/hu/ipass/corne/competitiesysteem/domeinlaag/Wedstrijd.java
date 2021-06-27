@@ -15,23 +15,19 @@ public class Wedstrijd implements Serializable {
     private Team uitTeam;
     private Team thuisTeam;
     private Competitie competitie;
-    private Map<Speler, String> geboekteSpelers = new HashMap<Speler, String>();
 
     private static ArrayList<Wedstrijd> alleWedstrijden = new ArrayList<Wedstrijd>();
 
     public Wedstrijd(LocalDateTime dt, int vd, Team ut, Team tt) {
-        if (!ut.equals(tt)) {
-            this.datum = dt;
-            this.veld = vd;
-            this.uitTeam= ut;
-            this.thuisTeam = tt;
-            alleWedstrijden.add(this);
-        }
 
+        this.datum = dt;
+        this.veld = vd;
+        this.uitTeam= ut;
+        this.thuisTeam = tt;
+        alleWedstrijden.add(this);
 
 
     }
-
     public void setGespeeld() {
         gespeeld = true;
         if (competitie != null) {
@@ -69,23 +65,6 @@ public class Wedstrijd implements Serializable {
         this.datum = d;
     }
 
-    public void setBoekingSpeler(Speler speler , String boeking ) {
-
-        if (!geboekteSpelers.containsKey(speler)) {
-            if (boeking.equals("geel")) {
-                speler.addGeleKaart();
-                geboekteSpelers.put(speler, boeking);
-            } if (boeking.equals("rood")) {
-                speler.addRodeKaart();
-                geboekteSpelers.put(speler, boeking);
-            }
-        }
-    }
-
-    public Map<Speler , String> getGeboekteSpelers() {
-        return geboekteSpelers;
-    }
-
     public void addWedstrijd(Wedstrijd w) {
         alleWedstrijden.add(this);
     }
@@ -111,9 +90,12 @@ public class Wedstrijd implements Serializable {
         boolean gelijkeObjecten = false;
         if (andereObject instanceof Wedstrijd) {
             Wedstrijd andereWedstrijd = (Wedstrijd) andereObject;
-            if (this.thuisTeam.equals(andereWedstrijd.getThuisTeam()) && this.uitTeam.equals(andereWedstrijd.getUitTeam()) && this.datum == andereWedstrijd.getDatum()) {
-                gelijkeObjecten = true;
+            if (this.thuisTeam !=null && this.uitTeam != null) {
+                if (this.thuisTeam.equals(andereWedstrijd.getThuisTeam()) && this.uitTeam.equals(andereWedstrijd.getUitTeam()) && this.datum == andereWedstrijd.getDatum()) {
+                    gelijkeObjecten = true;
+                }
             }
+
         }
         return gelijkeObjecten;
     }

@@ -4,15 +4,25 @@ function registreer() {
 
     var encData = new URLSearchParams();
 
+    var fetchOptions = {
+        method: "POST",
+        headers: {
+            "Authorization": "Bearer " + window.sessionStorage.getItem("myJWT")
+        },
+        body: encData
+    }
 
     encData.append("username" , username);
     encData.append("password" , password);
 
+    console.log(username)
+    console.log(password)
+    console.log(window.sessionStorage.getItem("role"))
+
     if (username !== "" && password !== "") {
-        fetch("/restservices/Gebruiker/scheidsrechter", {method: "POST", body: encData})
+        fetch("/restservices/Gebruiker/scheidsrechter", fetchOptions)
             .then(function (response) {
                 if (response.ok) {
-
                     document.querySelector("#errorp11").innerHTML = ""
                     document.querySelector("#gebruikerRegistreer").value = "";
                     document.querySelector("#wwRegistreer").value = "";

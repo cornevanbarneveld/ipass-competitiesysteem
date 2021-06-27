@@ -3,10 +3,8 @@ package nl.hu.ipass.corne.competitiesysteem.persistence;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
+import nl.hu.ipass.corne.competitiesysteem.security.Gebruiker;
 
-import static java.lang.System.out;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -38,7 +36,7 @@ public class PersistanceGebruiker {
 
 
         if (blobContainer.exists()) {
-            BlobClient blob = blobContainer.getBlobClient("blobgebruiker4");
+            BlobClient blob = blobContainer.getBlobClient("blobgebruiker8");
 
             if (blob.exists()) {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -66,7 +64,7 @@ public class PersistanceGebruiker {
             blobContainer.create();
         }
 
-        BlobClient blob = blobContainer.getBlobClient("blobgebruiker4");
+        BlobClient blob = blobContainer.getBlobClient("blobgebruiker8");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 

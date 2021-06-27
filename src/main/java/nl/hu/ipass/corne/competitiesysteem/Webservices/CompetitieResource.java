@@ -5,6 +5,7 @@ import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Competitie;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Wedstrijd;
 
+import javax.annotation.security.RolesAllowed;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,13 +24,14 @@ import java.util.Map;
 public class CompetitieResource {
 
     @GET
+    @RolesAllowed({"toeschouwer","admin" , "scheidsrechter"})
     @Path("{club}/{team}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCompetities(@PathParam("club") String club, @PathParam("team")  String team) {
 
         Club c = Club.getClubOpNaam(club);
         if (c != null) {
-            Team t = Team.getTeamOpNaamEnClub(team, c);
+            Team t = Team.getTeamOpNaamEnClub(team, club);
             if (t != null) {
                 ArrayList<Competitie> competities = new ArrayList<Competitie>();
                 competities.addAll(Competitie.getCompetitiesVoorTeam(t));
@@ -49,6 +52,7 @@ public class CompetitieResource {
     }
 
     @POST
+    @RolesAllowed({"toeschouwer","admin" , "scheidsrechter"})
     @Path("{club}/{team}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getStandElkTeam(@PathParam("club") String club,
@@ -59,7 +63,7 @@ public class CompetitieResource {
 
         Club club1 = Club.getClubOpNaam(club);
         if (club1 != null) {
-            Team t = Team.getTeamOpNaamEnClub(team, club1);
+            Team t = Team.getTeamOpNaamEnClub(team, club);
             if (t != null) {
                 ArrayList<Competitie> competities = new ArrayList<>(Competitie.getCompetitiesVoorTeam(t));
                 for (Competitie comp : competities) {
@@ -159,14 +163,17 @@ public class CompetitieResource {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Path("/maak/{competitienaam}/{klasse}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCompetitieTeamsEnClub(@PathParam("competitienaam") String competitienaam,
+    public Response maakCompetitieTeamsEnClub(@PathParam("competitienaam") String competitienaam,
                                              @PathParam("klasse") String klasse) {
 
 
+        Date d=new Date();
+
         if (competitienaam != null && klasse != null) {
-            Competitie competitie = new Competitie(competitienaam , klasse , 2020 , 2021);
+            Competitie competitie = new Competitie(competitienaam , klasse , d.getYear() + 1900, d.getYear() + 1901);
 
             return Response.ok(competitie.getNummer()).build();
         }
@@ -177,6 +184,7 @@ public class CompetitieResource {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Path("/voegtoe/{nummer}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response VoegTeamToe(@PathParam("nummer") int nummer,
@@ -211,6 +219,7 @@ public class CompetitieResource {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Path("/voegwedstrijdtoe/{nummer}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response VoegWedstrijdToe(@PathParam("nummer") int nummer,
@@ -225,40 +234,76 @@ public class CompetitieResource {
 
         LocalDateTime dateTime = LocalDateTime.parse(datum);
 
-
-        Club thuisclub1 = Club.getClubOpNaam(thuisclub);
-        Club uitClub1 = Club.getClubOpNaam(uitclub);
-
-        if (thuisclub1 != null && uitClub1 != null & veld != 0 ) {
-            Team thuisTeam1 = Team.getTeamOpNaamEnClub(thuisteam , thuisclub1);
-            Team uitTeam1 = Team.getTeamOpNaamEnClub(uitteam, uitClub1);
-            if (thuisTeam1 != null && uitTeam1 != null && !thuisTeam1.equals(uitTeam1) ) {
-                Wedstrijd wedstrijd = new Wedstrijd(dateTime, veld, thuisTeam1, uitTeam1);
+        System.out.println(thuisclub);
+        System.out.println(uitclub);
+        System.out.println(veld);
+        System.out.println(thuisteam);
+        System.out.println(uitteam);
 
 
-                for (Competitie comp : Competitie.getCompetities()) {
-                    if (comp.getNummer() == nummer) {
-                        for (Wedstrijd wed : comp.getAlleWedstrijden()) {
-                            if (wed.equals(wedstrijd)) {
+        Team thuisTeam1 = Team.getTeamOpNaamEnClub(thuisteam , thuisclub);
+
+        Team uitTeam1 = Team.getTeamOpNaamEnClub(uitteam, uitclub);
+
+        System.out.println(thuisTeam1);
+        System.out.println(uitTeam1);
+
+
+        System.out.println(dateTime);
+
+        if (thuisTeam1 != null && uitTeam1 != null && !thuisTeam1.equals(uitTeam1)) {
+
+
+
+            for (Competitie comp : Competitie.getCompetities()) {
+                if (comp.getNummer() == nummer) {
+                    for (Wedstrijd wed : comp.getAlleWedstrijden()) {
+                        if (wed.getThuisTeam() != null && wed.getUitTeam() != null && wed.getDatum() != null) {
+                            System.out.println(wed.getDatum());
+
+                            System.out.println("thuis " +wed.getThuisTeam().getNaam());
+                            System.out.println("thuis1 " + thuisTeam1.getNaam());
+                            if (wed.getThuisTeam().equals(thuisTeam1)) {
+                                System.out.println("thuissss");
+                            }
+
+
+                            System.out.println( "uit" +wed.getUitTeam().getNaam());
+                            System.out.println( "uit1" + uitTeam1.getNaam());
+
+                            if (wed.getUitTeam().equals(uitTeam1)) {
+                                System.out.println("uittt");
+                            }
+
+
+
+                            if (wed.getThuisTeam().equals(thuisTeam1) && wed.getUitTeam().equals(uitTeam1) && wed.getDatum().equals(dateTime)) {
+                                System.out.println("error");
                                 return Response.status(Response.Status.NOT_FOUND).build();
                             }
                         }
 
-                        comp.AddWedstrijd(wedstrijd);
-                        return Response.ok().build();
-
-
                     }
+                    Wedstrijd wedstrijd = new Wedstrijd(dateTime, veld,uitTeam1 ,thuisTeam1 );
+                    comp.AddWedstrijd(wedstrijd);
+
+
+                    System.out.println("gemaakt");
+
+                    return Response.ok().build();
+
+
                 }
             }
-
-
         }
 
 
 
 
 
+
+
+        System.out.println("error2");
         return Response.status(Response.Status.NOT_FOUND).build();
 
     }

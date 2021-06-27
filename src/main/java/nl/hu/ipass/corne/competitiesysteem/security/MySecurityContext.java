@@ -1,6 +1,5 @@
 package nl.hu.ipass.corne.competitiesysteem.security;
 
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 

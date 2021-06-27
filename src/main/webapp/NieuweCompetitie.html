@@ -21,24 +21,27 @@
         <h2>Nieuwe Competitie</h2>
 
             <div class="input-container">
+                <div id="c1">
+                    <label for="input-field1naam" >competitienaam</label>
+                    <input id="input-field1naam" type="text" placeholder="Naam" name="naam" >
+                </div>
+                <div id="c2">
+                    <label>klasse
+                        <select id="selectKlasse">
+                            <option>Professioneel</option>
+                            <option>Eerste Divisie</option>
+                            <option>Tweede Divisie</option>
+                            <option>Derde Divisie</option>
+                            <option>Hoofdklasse</option>
+                            <option>Eerste Klasse</option>
+                            <option>Tweede Klasse</option>
+                            <option>Derde Klasse</option>
+                            <option>Vierde Klasse</option>
+                            <option>Vijfde Klasse</option>
+                        </select>
+                    </label>
+                </div>
 
-                <label for="input-field1naam" hidden>competitienaam</label>
-                <input id="input-field1naam" type="text" placeholder="Naam" name="naam" >
-
-                <label>
-                    <select id="selectKlasse">
-                        <option>Professioneel</option>
-                        <option>Eerste Divisie</option>
-                        <option>Tweede Divisie</option>
-                        <option>Derde Divisie</option>
-                        <option>Hoofdklasse</option>
-                        <option>Eerste Klasse</option>
-                        <option>Tweede Klasse</option>
-                        <option>Derde Klasse</option>
-                        <option>Vierde Klasse</option>
-                        <option>Vijfde Klasse</option>
-                    </select>
-                </label>
 
                 <button id="maakcompbutton" onclick="maakCompetitie()">maak Competitie</button>
             </div>

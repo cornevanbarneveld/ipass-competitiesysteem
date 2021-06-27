@@ -1,4 +1,4 @@
-package nl.hu.ipass.corne.competitiesysteem.domeinlaag;
+package nl.hu.ipass.corne.competitiesysteem.security;
 
 import java.io.Serializable;
 import java.security.Principal;
@@ -19,7 +19,6 @@ public class Gebruiker implements Principal, Serializable {
 
     }
 
-
     public String getWachtwoord() {
         return wachtwoord;
     }
@@ -27,7 +26,6 @@ public class Gebruiker implements Principal, Serializable {
     public void addGebruiker(Gebruiker g) {
         alleGebruikers.add(g);
     }
-
 
     public static ArrayList<Gebruiker> getAlleGebruikers() {
         return alleGebruikers;
@@ -37,10 +35,12 @@ public class Gebruiker implements Principal, Serializable {
     public String getName() {
         return gebruikersnaam;
     }
-
     public String getType() {
         return type;
     }
+
+
+
 
     public static Gebruiker getUserByName(String username) {
         for (Gebruiker g :alleGebruikers) {
@@ -49,25 +49,20 @@ public class Gebruiker implements Principal, Serializable {
             }
         }
         return null;
-
     }
 
     public static String validateLogin(String username, String password){
         if(username==null || username.isBlank() || password == null || password.isBlank()) {
             return null;
         }
-
         var Mijngebruiker = Gebruiker.getUserByName(username);
-
         if(Mijngebruiker == null) {
             return null;
         }
-
         if (Mijngebruiker.getWachtwoord().equals(password)) {
             return Mijngebruiker.getType();
         }
         return null;
-
     }
 
 }

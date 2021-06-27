@@ -42,25 +42,5 @@ class WedstrijdTest {
 
     }
 
-    @Test
-    void setBoekingSpelerTestFouteinvoer() {
 
-        wedstrijd.setBoekingSpeler(speler1 , "foute invoer");
-        assertFalse(wedstrijd.getGeboekteSpelers().containsKey(speler1));
-
-
-    }
-
-    @Test
-    void setBoekingenSpeltest2eKeer() {
-        wedstrijd.setBoekingSpeler(speler1, "geel");
-        wedstrijd.setBoekingSpeler(speler1, "rood" );
-
-        Map<Speler , String > spelersboekingen = new HashMap<Speler, String>();
-
-        spelersboekingen.put(speler1, "geel");
-
-        assertEquals(wedstrijd.getGeboekteSpelers(), spelersboekingen);
-
-    }
 }

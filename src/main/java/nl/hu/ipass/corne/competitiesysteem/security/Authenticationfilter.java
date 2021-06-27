@@ -7,7 +7,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
 
 import javax.annotation.Priority;
 import javax.ws.rs.Priorities;

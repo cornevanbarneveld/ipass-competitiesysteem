@@ -19,7 +19,7 @@ import static java.lang.System.out;
 public class SpelersResource {
 
     @GET
-    //@RolesAllowed("toeschouwer")
+    @RolesAllowed({"toeschouwer","admin" , "scheidsrechter"})
     @Path("{club}/{team}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAlleSpelers(@PathParam("club") String club, @PathParam("team")  String team) {
@@ -44,6 +44,7 @@ public class SpelersResource {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Path("/nieuwe/{club}/{team}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response voegSpelerToe(@PathParam("club") String club,
@@ -55,7 +56,7 @@ public class SpelersResource {
         Club club1 = Club.getClubOpNaam(club);
 
         if (club1 != null) {
-            Team team1 = Team.getTeamOpNaamEnClub(team, club1);
+            Team team1 = Team.getTeamOpNaamEnClub(team, club);
             if (team1 != null) {
                 Speler speler1 = new Speler(speler);
                 team1.VoegspelerToe(speler1);

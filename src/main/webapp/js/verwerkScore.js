@@ -56,21 +56,21 @@ function zoekWedstrijden() {
             throw "spelers niet gevonden";
         }
     }).then((wedstrijden) => {
-
         var ul = document.querySelector("#ulwedstrijden")
-
         var counter = 0;
 
         wedstrijden.forEach((element) => {
 
+            console.log(wedstrijden)
+
             counter += 1
-
             var datum = new Date(element["datum"])
-
 
             datum.getTime()
 
             console.log(element["gespeeld"])
+            console.log(datum)
+
             if (datum.getTime() < Date.now() && element["gespeeld"] === false) {
                 const li = document.createElement("li");
 
@@ -91,9 +91,6 @@ function zoekWedstrijden() {
                 input2.setAttribute("class" , "input2")
                 input.setAttribute("class" , "input1")
 
-
-
-
                 input.id = "input1" + counter;
                 input.name = "text" + counter;
                 input.type = "number";
@@ -102,18 +99,10 @@ function zoekWedstrijden() {
                 input2.name = "input2" + counter;
                 input2.type = "number";
 
-
                 var label1 = document.createElement("label")
                 var label2 = document.createElement("label")
-
                 label1.htmlFor = "input1" + counter;
                 label2.htmlFor = "input2" + counter;
-
-
-
-
-
-
                 div.appendChild(label1)
                 div.appendChild(input)
                 div.appendChild(label2)
@@ -131,14 +120,16 @@ function zoekWedstrijden() {
 
                 verwerk.addEventListener("click" , function () {
 
-
                     var scoreThuisTeam = input.value
+                    console.log(scoreThuisTeam)
                     var scoreUiTeam = input2.value
+                    console.log(scoreUiTeam)
                     var thuisclub = element["thuisclub"]
                     var thuisTeam = element["thuisTeam"]
                     var uitclub = element["uitclub"]
                     var uitTeam = element["uitTeam"]
                     var datum = element["datum"]
+                    var nummer = element["nummer"]
                     var encData = new URLSearchParams()
 
                     encData.append("thuisclub" , thuisclub)
@@ -149,6 +140,7 @@ function zoekWedstrijden() {
                     encData.append("datum" , datum)
                     encData.append("scoreThuisteam" , scoreThuisTeam)
                     encData.append("scoreUitteam" , scoreUiTeam)
+                    encData.append("nummer" , nummer)
 
                     var fetchOptions = {
                         method: "POST",
@@ -162,7 +154,7 @@ function zoekWedstrijden() {
 
 
                             if (response.ok) {
-                                console.log("gelukt")
+                                window.open("verwerkScore.html")
                             } else {
                                 throw "spelers niet gevonden";
                             }

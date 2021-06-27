@@ -41,7 +41,11 @@
             <label>Nieuwe Datum
                 <input id="datumVerplaats" placeholder="Datum" type="datetime-local" name="Datum">
             </label>
-            <button onclick="VerplaatsDatum()">Verplaats</button>
+            <div id="buttons">
+                <button onclick="VerplaatsDatum()">Verplaats</button>
+                <button onclick="closeDialog()">cancel</button>
+            </div>
+
         </dialog>
     </div>
 </body>

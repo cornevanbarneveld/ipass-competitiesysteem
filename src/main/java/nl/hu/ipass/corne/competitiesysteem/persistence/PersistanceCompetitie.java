@@ -4,13 +4,9 @@ import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Competitie;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Gebruiker;
-import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Wedstrijd;
 
 import java.io.*;
 import java.util.ArrayList;
-
-import static java.lang.System.out;
 
 public class PersistanceCompetitie {
     private static final String ENDPOINT = "https://bepoplsagco.blob.core.windows.net/";

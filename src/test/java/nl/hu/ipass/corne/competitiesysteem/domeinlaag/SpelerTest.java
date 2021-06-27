@@ -14,17 +14,7 @@ class SpelerTest {
         speler = new Speler("Corné van Barneveld" );
     }
 
-    @Test
-    void addEnGetGeleKaart() {
-        speler.addGeleKaart();
-        assertEquals(speler.getGelKaart(), 1);
-    }
 
-    @Test
-    void addEnGetRodeKaart() {
-        speler.addRodeKaart();
-        assertEquals(speler.getRodeKaart(), 1);
-    }
 
 
 }

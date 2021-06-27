@@ -3,6 +3,7 @@ package nl.hu.ipass.corne.competitiesysteem.Webservices;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Club;
 import nl.hu.ipass.corne.competitiesysteem.domeinlaag.Team;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.Response;
 @Path("/club")
 public class ClubResource {
     @POST
+    @RolesAllowed("admin")
     @Path("/clubmaak/{club}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCompetitieTeamsEnClub(@PathParam("club") String club) {

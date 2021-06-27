@@ -62,7 +62,7 @@ function zoekWedstrijden() {
 
         wedstrijden.forEach((element) => {
 
-            console.log(element["gespeeld"])
+
 
 
             const li = document.createElement("li");
@@ -73,7 +73,12 @@ function zoekWedstrijden() {
             var p3 = document.createElement("p");
             var p4 = document.createElement("p");
 
-            p1.innerHTML =  element["datum"];
+
+            var datum = String(element["datum"]);
+            var nieuweDatum = datum.replace("T" , " ");
+
+
+            p1.innerHTML =  nieuweDatum
             p2.innerHTML =  element["thuisclub"] + " " + element["thuisTeam"];
 
             if (element["gespeeld"] === true) {
@@ -84,7 +89,7 @@ function zoekWedstrijden() {
 
             p4.innerHTML =  element["uitclub"] + " " + element["uitTeam"];
 
-            console.log(window.sessionStorage.getItem("role"))
+
 
             if (window.sessionStorage.getItem("role") === "admin") {
 
@@ -103,24 +108,17 @@ function zoekWedstrijden() {
                         openDialog()
                     })
                 }
-
-
-
-
-
-                //button.setAttribute("onclick" , "openDialog()")
-
-
-
-
-
             }
             li.appendChild(p1);
             li.appendChild(p2);
             li.appendChild(p3);
             li.appendChild(p4);
 
-            ul.appendChild(li);
+            if ( window.sessionStorage.getItem("role") === "admin" ||(element["thuisclub"] === window.sessionStorage.getItem("selectedClub") && element["thuisTeam"] === window.sessionStorage.getItem("selectedTeam")) || (element["uitclub"] === window.sessionStorage.getItem("selectedClub") && element["uitTeam"] === window.sessionStorage.getItem("selectedTeam")) ){
+                ul.appendChild(li);
+            }
+
+
 
         })
 
@@ -133,10 +131,15 @@ function zoekWedstrijden() {
 function refresh() {
     document.querySelector("#errorp7").innerHTML = ""
     document.querySelector("#errorp8").innerHTML = ""
+    if (window.sessionStorage.getItem("nummer") !== null) {
+        document.querySelector("#nummer").value = window.sessionStorage.getItem("nummer");
+
+    }
 }
 
 
 function voegWedstrijdToe() {
+
 
 
     var thuisClub = document.querySelector("#thuisclub").value;
@@ -150,7 +153,7 @@ function voegWedstrijdToe() {
     var datum1 = new Date(Datum)
 
     if (datum1.getTime() < Date.now()) {
-        document.querySelector("#errorp7").innerHTML = "Datum mag niet in het verleden zijn"
+        document.querySelector("#errorp7").innerHTML = "Datum mag niet in het heden of verleden zijn"
         Datum = null;
     } else {
         var encData = new URLSearchParams();
@@ -173,10 +176,12 @@ function voegWedstrijdToe() {
         }
 
         if (thuisClub !== "" && thuisTeam !== "" && uitClub !== "" && uitTeam !== "" && nummer !== 0 && veld !== 0) {
-            console.log(thuisClub)
+
             fetch(`/restservices/competitie/voegwedstrijdtoe/${nummer}` , fetchOptions).then( (response) => {
 
                 if (response.ok) {
+                    document.querySelector("#errorp7").innerHTML = ""
+
                     document.querySelector("#thuisclub").value = "";
                     document.querySelector("#thuisteam").value = "";
                     document.querySelector("#uitClub").value = "";
@@ -230,8 +235,6 @@ function VerplaatsDatum() {
     encData.append("nieuwedatum" , nieuwedatum)
 
 
-    console.log(datum);
-    console.log(nieuwedatum)
 
     var fetchOptions = {
         method: "POST",
@@ -240,22 +243,28 @@ function VerplaatsDatum() {
         },
         body: encData
     }
+    if (nieuwedatum !== "") {
+        fetch(`/restservices/wedstrijd/vervangDatum` , fetchOptions).then( (response) => {
 
-    fetch(`/restservices/wedstrijd/vervangDatum` , fetchOptions).then( (response) => {
+            window.sessionStorage.removeItem("datum")
+            if (response.ok) {
 
-        window.sessionStorage.removeItem("datum")
-        if (response.ok) {
+                document.querySelector("#wedstrijdVerplaatsen").close();
+                return response.json()
 
-            document.querySelector("#wedstrijdVerplaatsen").close();
-            return response.json()
+            } else {
+                throw "spelers niet gevonden";
+            }
+        }).then((date) => {
+            window.sessionStorage.setItem("datum" ,date)
+        }).catch(error => console.log(error))
+    }
 
-        } else {
-            throw "spelers niet gevonden";
-        }
-    }).then((date) => {
-        console.log(date)
-        window.sessionStorage.setItem("datum" ,date)
-    }).catch(error => console.log(error))
 
+
+}
+
+function closeDialog() {
+    document.querySelector("#wedstrijdVerplaatsen").close();
 
 }
