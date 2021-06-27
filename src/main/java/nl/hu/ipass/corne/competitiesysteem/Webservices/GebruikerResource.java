@@ -45,16 +45,15 @@ public class GebruikerResource {
     public Response registreerScheidsRechter(@FormParam("username") String username,
                                         @FormParam("password") String password) {
 
-        System.out.println(username);
-        System.out.println(password);
+
         if (password == null || username == null) {
-            System.out.println("null");
+
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         for (Gebruiker g: Gebruiker.getAlleGebruikers()) {
-            System.out.println("hier");
+
             if (g.getName().equals(username)) {
-                System.out.println("eroor");
+
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
         }

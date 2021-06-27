@@ -136,7 +136,6 @@ public class CompetitieResource {
 
                             }
                             doelsaldo = dptv -dptt;
-                            System.out.println(comp.getNummer());
                             JsonObjectBuilder job = Json.createObjectBuilder()
                                     .add("clubEnTeamnaam", clubEnTeamnaam)
                                     .add("gespeeld", gespeeld)
@@ -234,22 +233,14 @@ public class CompetitieResource {
 
         LocalDateTime dateTime = LocalDateTime.parse(datum);
 
-        System.out.println(thuisclub);
-        System.out.println(uitclub);
-        System.out.println(veld);
-        System.out.println(thuisteam);
-        System.out.println(uitteam);
+
 
 
         Team thuisTeam1 = Team.getTeamOpNaamEnClub(thuisteam , thuisclub);
 
         Team uitTeam1 = Team.getTeamOpNaamEnClub(uitteam, uitclub);
 
-        System.out.println(thuisTeam1);
-        System.out.println(uitTeam1);
 
-
-        System.out.println(dateTime);
 
         if (thuisTeam1 != null && uitTeam1 != null && !thuisTeam1.equals(uitTeam1)) {
 
@@ -259,26 +250,18 @@ public class CompetitieResource {
                 if (comp.getNummer() == nummer) {
                     for (Wedstrijd wed : comp.getAlleWedstrijden()) {
                         if (wed.getThuisTeam() != null && wed.getUitTeam() != null && wed.getDatum() != null) {
-                            System.out.println(wed.getDatum());
-
-                            System.out.println("thuis " +wed.getThuisTeam().getNaam());
-                            System.out.println("thuis1 " + thuisTeam1.getNaam());
-                            if (wed.getThuisTeam().equals(thuisTeam1)) {
-                                System.out.println("thuissss");
-                            }
 
 
-                            System.out.println( "uit" +wed.getUitTeam().getNaam());
-                            System.out.println( "uit1" + uitTeam1.getNaam());
 
-                            if (wed.getUitTeam().equals(uitTeam1)) {
-                                System.out.println("uittt");
-                            }
+
+
+
+
 
 
 
                             if (wed.getThuisTeam().equals(thuisTeam1) && wed.getUitTeam().equals(uitTeam1) && wed.getDatum().equals(dateTime)) {
-                                System.out.println("error");
+
                                 return Response.status(Response.Status.NOT_FOUND).build();
                             }
                         }
@@ -288,7 +271,7 @@ public class CompetitieResource {
                     comp.AddWedstrijd(wedstrijd);
 
 
-                    System.out.println("gemaakt");
+
 
                     return Response.ok().build();
 
@@ -303,7 +286,7 @@ public class CompetitieResource {
 
 
 
-        System.out.println("error2");
+
         return Response.status(Response.Status.NOT_FOUND).build();
 
     }

@@ -140,31 +140,27 @@ public class WedstrijdResource {
         Team thuisTeam1 = Team.getTeamOpNaamEnClub(thuisteam , thuisclub);
         Team uitTeam1 = Team.getTeamOpNaamEnClub(uitteam, uitclub);
 
-        System.out.println(thuisTeam1);
-        System.out.println(uitTeam1);
+
 
 
 
         if (thuisTeam1 != null && uitTeam1 != null) {
-            System.out.println("hier1");
-            for (Wedstrijd w: Wedstrijd.getAlleWedstrijden()) {
-                System.out.println("hier2");
 
-                System.out.println(dateTime.toString());
-                System.out.println(w.getDatum().toString());
+            for (Wedstrijd w: Wedstrijd.getAlleWedstrijden()) {
+
 
 
 
                 if (w.getUitTeam() != null && w.getThuisTeam() != null) {
-                    System.out.println("nog verder");
+
                     if (w.getThuisTeam().equals(thuisTeam1) && w.getUitTeam().equals(uitTeam1) && (w.getDatum().toString().equals(dateTime.toString() )) )  {
 
                         w.setScoreThuisTeam(scoreThuisteam);
-                        System.out.println(w.getScoreThuisTeam());
+
                         w.setScoreUitTeam(scoreUitteam);
-                        System.out.println(w.getScoreUitTeam());
+
                         w.setGespeeld();
-                        System.out.println(w.getGespeeld());
+
 
                         for (Competitie comp : Competitie.getCompetities()) {
                             if (comp.getNummer() == nummer) {

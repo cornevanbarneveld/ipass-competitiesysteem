@@ -17,13 +17,7 @@ public class MyServletContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
 
-        Gebruiker gebruiker = new Gebruiker("sjaak1" , "wacht" , "admin");
-
-
-
-
-
-
+        //Gebruiker gebruiker = new Gebruiker("sjaak1" , "wacht" , "admin");
 
 
         try { PersistanceGebruiker.loadWorldFromAzure();
